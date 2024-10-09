@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "420697923597",
+    "firebase_url": "https://serradomotica-2024-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "serradomotica-2024",
+    "storage_bucket": "serradomotica-2024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420697923597:android:1a12751b40bfcbcad37544",
+        "android_client_info": {
+          "package_name": "com.example.SerraDomotica"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7poQyATUwLbZ8uIn4ogyaEg8EjvTGSyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

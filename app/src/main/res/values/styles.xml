@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Serra_Domotica" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="buttonStyle">@style/DarkButton</item>
+    </style>
+
+    <style name="DarkButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#005f99</item> <!-- Darker shade of blue -->
+        <item name="android:textColor">#FFFFFF</item> <!-- White text color -->
+    </style>
+
+    <style name="Theme.Serra_Domotica" parent="Base.Theme.Serra_Domotica" />
+</resources>
