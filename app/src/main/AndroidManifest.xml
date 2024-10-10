@@ -27,6 +27,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".GreenhouseDetailsActivity" />
+        <activity android:name=".GreenhousesActivity" />
 
     </application>
 </manifest>
