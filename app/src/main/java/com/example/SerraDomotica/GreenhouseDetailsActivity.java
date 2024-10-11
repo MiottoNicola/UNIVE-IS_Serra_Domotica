@@ -17,11 +17,10 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Serra 1");
 
         String greenhouseName = getIntent().getStringExtra("greenhouse_name");
 
-        TextView textViewDetails = findViewById(R.id.textViewDetails);
-        textViewDetails.setText("Details for " + greenhouseName);
     }
 
     @Override
