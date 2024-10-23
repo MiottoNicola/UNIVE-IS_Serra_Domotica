@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -156,12 +157,37 @@ public class ProfileActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
+                                    LinearLayout deviceItem = new LinearLayout(ProfileActivity.this);
+                                    deviceItem.setOrientation(LinearLayout.HORIZONTAL);
+                                    deviceItem.setGravity(Gravity.CENTER_VERTICAL);
+                                    deviceItem.setPadding(0, 0, 0, 8);
+
+                                    TextView noDevice = new TextView(ProfileActivity.this);
+                                    noDevice.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+                                    noDevice.setPadding(8, 8, 8, 8);
+                                    noDevice.setText("No device found");
+
+                                    deviceItem.addView(noDevice);
+                                    deviceContainer.addView(deviceItem);
                                     Toast.makeText(ProfileActivity.this, "Failed to load device data.", Toast.LENGTH_SHORT).show();
                                 }
                             });
 
                         }
                     } else {
+                        LinearLayout deviceItem = new LinearLayout(ProfileActivity.this);
+                        deviceItem.setOrientation(LinearLayout.HORIZONTAL);
+                        deviceItem.setGravity(Gravity.CENTER_VERTICAL);
+                        deviceItem.setPadding(0, 0, 0, 8);
+
+                        TextView noDevice = new TextView(ProfileActivity.this);
+                        noDevice.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+                        noDevice.setPadding(8, 8, 8, 8);
+                        noDevice.setText("No device found");
+
+                        deviceItem.addView(noDevice);
+                        deviceContainer.addView(deviceItem);
+
                         Toast.makeText(ProfileActivity.this, "No devices found", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -171,6 +197,9 @@ public class ProfileActivity extends AppCompatActivity {
                     Toast.makeText(ProfileActivity.this, "Failed to load devices.", Toast.LENGTH_SHORT).show();
                 }
             });
+        }else{
+            Toast.makeText(ProfileActivity.this, "User is null", Toast.LENGTH_SHORT).show();
+            finish();
         }
 
         logoutIcon.setOnClickListener(v -> {
@@ -234,15 +263,29 @@ public class ProfileActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Add the greenhouse ID to the user's devices
                                     String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                    DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices").child(greenhouseId);
-                                    userDevicesRef.setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices");
+                                    userDevicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Toast.makeText(ProfileActivity.this, "Greenhouse added successfully", Toast.LENGTH_SHORT).show();
+                                        public void onDataChange(@NonNull DataSnapshot userDevicesSnapshot) {
+                                            if (!userDevicesSnapshot.exists()) {
+                                                userDevicesRef.setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
+                                                        } else {
+                                                            Toast.makeText(ProfileActivity.this, "Failed to add root /devices to user", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
+                                                });
                                             } else {
-                                                Toast.makeText(ProfileActivity.this, "Failed to add greenhouse to user devices", Toast.LENGTH_SHORT).show();
+                                                addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
                                             }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                                            Toast.makeText(ProfileActivity.this, "Failed to check user devices", Toast.LENGTH_SHORT).show();
                                         }
                                     });
                                 } else {
@@ -261,6 +304,19 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(ProfileActivity.this, "Failed to check greenhouse ID", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void addGreenhouseToUserDevices(DatabaseReference userDevicesRef, String greenhouseId) {
+        userDevicesRef.child(greenhouseId).setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(ProfileActivity.this, "Greenhouse added successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ProfileActivity.this, "Failed to add greenhouse to user devices", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

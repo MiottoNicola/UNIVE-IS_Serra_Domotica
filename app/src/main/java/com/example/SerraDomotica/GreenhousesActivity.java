@@ -6,9 +6,14 @@ import android.media.Image;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,6 +43,7 @@ public class GreenhousesActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
     private ImageView addIcon;
+    private TextView noGreenhousesMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +57,9 @@ public class GreenhousesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Your Greenhouses");
 
         addIcon = findViewById(R.id.addIcon);
-
         addIcon.setOnClickListener(v -> showAddGreenhouseDialog());
+
+        noGreenhousesMessage = findViewById(R.id.no_greenhouses_message);
 
         recyclerView = findViewById(R.id.recyclerViewGreenhouses);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -76,12 +83,17 @@ public class GreenhousesActivity extends AppCompatActivity {
         userDevicesRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                greenhouseList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String greenhouseId = snapshot.getKey();
-                    if (greenhouseId != null) {
-                        fetchGreenhouseTitle(greenhouseId);
+                if(dataSnapshot.exists()) {
+                    noGreenhousesMessage.setVisibility(View.GONE);
+                    greenhouseList.clear();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        String greenhouseId = snapshot.getKey();
+                        if (greenhouseId != null) {
+                            fetchGreenhouseTitle(greenhouseId);
+                        }
                     }
+                }else{
+                    noGreenhousesMessage.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -168,15 +180,29 @@ public class GreenhousesActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Add the greenhouse ID to the user's devices
                                     String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                    DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices").child(greenhouseId);
-                                    userDevicesRef.setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices");
+                                    userDevicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Toast.makeText(GreenhousesActivity.this, "Greenhouse added successfully", Toast.LENGTH_SHORT).show();
+                                        public void onDataChange(@NonNull DataSnapshot userDevicesSnapshot) {
+                                            if (!userDevicesSnapshot.exists()) {
+                                                userDevicesRef.setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
+                                                        } else {
+                                                            Toast.makeText(GreenhousesActivity.this, "Failed to add root /devices to user", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
+                                                });
                                             } else {
-                                                Toast.makeText(GreenhousesActivity.this, "Failed to add greenhouse to user devices", Toast.LENGTH_SHORT).show();
+                                                addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
                                             }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                                            Toast.makeText(GreenhousesActivity.this, "Failed to check user devices", Toast.LENGTH_SHORT).show();
                                         }
                                     });
                                 } else {
@@ -195,6 +221,19 @@ public class GreenhousesActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(GreenhousesActivity.this, "Failed to check greenhouse ID", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void addGreenhouseToUserDevices(DatabaseReference userDevicesRef, String greenhouseId) {
+        userDevicesRef.child(greenhouseId).setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(GreenhousesActivity.this, "Greenhouse added successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(GreenhousesActivity.this, "Failed to add greenhouse to user devices", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

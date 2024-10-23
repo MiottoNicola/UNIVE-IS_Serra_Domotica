@@ -27,6 +27,16 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <TextView
+            android:id="@+id/no_greenhouses_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No greenhouses found"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:padding="16dp"/>
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewGreenhouses"
             android:layout_width="match_parent"
