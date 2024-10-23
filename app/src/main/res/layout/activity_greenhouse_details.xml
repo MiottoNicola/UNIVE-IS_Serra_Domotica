@@ -1,7 +1,7 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:clipChildren="false"
     android:clipToPadding="false">
@@ -13,175 +13,292 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ToolbarStyle"
         android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/delIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Delete Greenhouse"
+            android:layout_gravity="end|center_vertical"
+            android:paddingEnd="12dp"/>
+
     </androidx.appcompat.widget.Toolbar>
 
-    <GridLayout
+    <!-- Single Card with Greenhouse Information -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="2"
-        android:layout_gravity="center">
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp">
 
-        <!-- Quadrante Temperatura -->
-        <FrameLayout
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/rounded_corners">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/imgTemperature"
+            <!-- Title: Information -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Information"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"/>
+
+            <!-- Temperature Information -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/img_temperature"
-                android:alpha="0.7"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/imgTemperature"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_temperature"
+                    android:alpha="0.7"
+                    app:tint="@android:color/black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <TextView
+                        android:id="@+id/textTemperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Temperatura"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/textTemperatureValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20.5 C"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Humidity Information -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/imgHumidity"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_humidity"
+                    android:alpha="0.7"
+                    app:tint="@android:color/black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <TextView
+                        android:id="@+id/textHumidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Umidità"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/textHumidityValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50%"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Soil Humidity Information -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/imgHumidityTer"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_humidity_indoor"
+                    android:alpha="0.7"
+                    app:tint="@android:color/black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <TextView
+                        android:id="@+id/textHumiditySoil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Umidità Terreno"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/textHumiditySoilValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50%"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Luminosity Information -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/imgLuminosity"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_light"
+                    android:alpha="0.7"
+                    app:tint="@android:color/black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <TextView
+                        android:id="@+id/textLuminosity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Luminosità"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/textLuminosityValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50%"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/textTemperature"
+                android:id="@+id/textDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Temperatura"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:text="Date"
+                android:textSize="14sp"
                 android:textColor="@android:color/black"
-                android:layout_gravity="center_horizontal"
-                android:gravity="start"
-                android:paddingTop="20dp" />
+                android:layout_gravity="end" />
 
-            <TextView
-                android:id="@+id/textTemperatureValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20.5 C"
-                android:textSize="50sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center"
-                android:gravity="center" />
-        </FrameLayout>
 
-        <!-- Quadrante Umidità Aria -->
-        <FrameLayout
-            android:layout_width="0dp"
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Large Card with Texts and Switches -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/rounded_corners">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/imgHumidity"
+            <!-- Title: Action -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Action"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/img_humidity"
-                android:alpha="0.7" />
-
-            <TextView
-                android:id="@+id/textHumidity"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Umidità"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center_horizontal"
-                android:gravity="start"
-                android:paddingTop="20dp" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/textHumidityValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="50%"
-                android:textSize="50sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center"
-                android:gravity="center" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-        </FrameLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accendi Acqua"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="8dp"/>
 
-        <!-- Quadrante Umidità Terreno -->
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/rounded_corners">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accendi Luce"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imgHumidityTer"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/img_humidity_soil"
-                android:alpha="0.7" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textHumiditySoil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Umidità Terreno"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center_horizontal"
-                android:gravity="start"
-                android:paddingTop="20dp" />
+                    <Switch
+                        android:id="@+id/switchWater"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"/>
 
-            <TextView
-                android:id="@+id/textHumiditySoilValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="50%"
-                android:textSize="50sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center"
-                android:gravity="center" />
-        </FrameLayout>
-
-        <!-- Quadrante Luminosità -->
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/rounded_corners">
-
-            <ImageView
-                android:id="@+id/imgLuminosity"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/img_luminosity"
-                android:alpha="0.7" />
-
-            <TextView
-                android:id="@+id/textLuminosity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Luminosità"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center_horizontal"
-                android:gravity="start"
-                android:paddingTop="20dp" />
-
-            <TextView
-                android:id="@+id/textLuminosityValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="50%"
-                android:textSize="50sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center"
-                android:gravity="center" />
-        </FrameLayout>
-
-    </GridLayout>
+                    <Switch
+                        android:id="@+id/switchLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
