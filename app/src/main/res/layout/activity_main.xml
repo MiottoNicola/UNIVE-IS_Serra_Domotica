@@ -50,7 +50,8 @@
                 android:layout_height="match_parent"
                 android:paddingTop="8dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:paddingEnd="16dp"
+                android:orientation="vertical">
 
                 <!-- Button to navigate to greenhouses -->
                 <Button
@@ -61,7 +62,6 @@
                     android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:padding="10dp"/>
-
             </LinearLayout>
 
         </LinearLayout>

@@ -301,4 +301,13 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <!-- Button to navigate to the example activity -->
+    <Button
+        android:id="@+id/button_example"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="@color/black"
+        android:text="History" />
 </LinearLayout>

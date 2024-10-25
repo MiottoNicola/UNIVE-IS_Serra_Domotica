@@ -29,6 +29,6 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".GreenhouseDetailsActivity" />
         <activity android:name=".GreenhousesActivity" />
-
+        <activity android:name=".TemperatureChartActivity" />
     </application>
 </manifest>

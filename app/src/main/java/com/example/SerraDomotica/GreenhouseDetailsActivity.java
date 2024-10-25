@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -77,6 +78,17 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No greenhouse ID or name provided", Toast.LENGTH_SHORT).show();
         }
+
+        Button exampleButton = findViewById(R.id.button_example);
+        exampleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GreenhouseDetailsActivity.this, TemperatureChartActivity.class);
+                intent.putExtra("idDevice", greenhouseId);
+                intent.putExtra("greenhouseName", greenhouseName);
+                startActivity(intent);
+            }
+        });
     }
 
     private void fetchGreenhouseDetails(String greenhouseId) {
