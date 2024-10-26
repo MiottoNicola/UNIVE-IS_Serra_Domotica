@@ -79,13 +79,35 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
             Toast.makeText(this, "No greenhouse ID or name provided", Toast.LENGTH_SHORT).show();
         }
 
-        Button exampleButton = findViewById(R.id.button_example);
-        exampleButton.setOnClickListener(new View.OnClickListener() {
+        Button historyButton = findViewById(R.id.history_button);
+        historyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GreenhouseDetailsActivity.this, TemperatureChartActivity.class);
                 intent.putExtra("idDevice", greenhouseId);
                 intent.putExtra("greenhouseName", greenhouseName);
+                startActivity(intent);
+            }
+        });
+
+        Button settingsButton = findViewById(R.id.settings_button);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhouseSettingsActivity.class);
+                intent.putExtra("greenhouse_id", greenhouseId);
+                intent.putExtra("greenhouse_name", greenhouseName);
+                startActivity(intent);
+            }
+        });
+
+        Button alertButton = findViewById(R.id.alert_button);
+        alertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GreenhouseDetailsActivity.this, AlertActivity.class);
+                intent.putExtra("greenhouse_id", greenhouseId);
+                intent.putExtra("greenhouse_name", greenhouseName);
                 startActivity(intent);
             }
         });
