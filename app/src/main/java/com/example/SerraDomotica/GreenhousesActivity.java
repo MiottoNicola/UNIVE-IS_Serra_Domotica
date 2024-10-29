@@ -37,12 +37,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GreenhousesActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
     private GreenhouseAdapter adapter;
     private List<String> greenhouseList;
     private DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
-    private ImageView addIcon;
     private TextView noGreenhousesMessage;
 
     @Override
@@ -56,12 +54,12 @@ public class GreenhousesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Your Greenhouses");
 
-        addIcon = findViewById(R.id.addIcon);
+        ImageView addIcon = findViewById(R.id.addIcon);
         addIcon.setOnClickListener(v -> showAddGreenhouseDialog());
 
         noGreenhousesMessage = findViewById(R.id.no_greenhouses_message);
 
-        recyclerView = findViewById(R.id.recyclerViewGreenhouses);
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewGreenhouses);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         greenhouseList = new ArrayList<>();

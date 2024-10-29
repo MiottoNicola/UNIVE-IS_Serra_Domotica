@@ -119,6 +119,11 @@ public class GreenhouseSettingsActivity extends AppCompatActivity {
             double minValue = Double.parseDouble(minField.getText().toString());
             double maxValue = Double.parseDouble(maxField.getText().toString());
 
+            if(minValue >= maxValue) {
+                Toast.makeText(this, "Min value should be less than max value", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             configRef.child(minKey).setValue(minValue);
             configRef.child(maxKey).setValue(maxValue);
 
