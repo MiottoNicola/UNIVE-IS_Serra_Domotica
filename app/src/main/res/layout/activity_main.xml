@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_account"
-                android:contentDescription="Profile Icon"
+                android:contentDescription="@string/profileIcon_imageDescription"
                 android:layout_gravity="end"
                 android:padding="12dp"/>
         </com.google.android.material.appbar.MaterialToolbar>
@@ -58,14 +58,13 @@
                     android:id="@+id/buttonGreenhouses"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="View Greenhouses"
+                    android:background="@drawable/rounded_button"
+                    android:textAllCaps="false"
+                    android:text="@string/viewGreenhouses_buttonText"
                     android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:padding="10dp"/>
             </LinearLayout>
-
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

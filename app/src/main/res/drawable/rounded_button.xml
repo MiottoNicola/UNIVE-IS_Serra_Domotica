@@ -1,0 +1,28 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Stato premuto -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#91D5C0" /> <!-- Verde più intenso -->
+            <corners android:radius="16dp" />
+            <stroke android:width="2dp" android:color="#72BFA7" /> <!-- Bordo ancora più scuro -->
+        </shape>
+    </item>
+
+    <!-- Stato disabilitato -->
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="#E0E0E0" /> <!-- Grigio chiaro per disabilitato -->
+            <corners android:radius="16dp" />
+            <stroke android:width="2dp" android:color="#BDBDBD" /> <!-- Bordo grigio -->
+        </shape>
+    </item>
+
+    <!-- Stato normale -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#B5EAD7" /> <!-- Verde pastello tenue -->
+            <corners android:radius="16dp" />
+            <stroke android:width="2dp" android:color="#91D5C0" /> <!-- Verde leggermente più intenso -->
+        </shape>
+    </item>
+</selector>

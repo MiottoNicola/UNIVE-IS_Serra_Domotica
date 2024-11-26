@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="Previsioni meteo"
+            android:text="@string/weatherForecast_text"
             android:textColor="@android:color/black"/>
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/ic_launcher_foreground"
-            android:contentDescription="Icona meteo"
+            android:contentDescription="@string/weatherIcon_imageDescription"
             android:layout_gravity="center"/>
 
         <!-- Descrizione del meteo -->
@@ -67,7 +67,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_temperature"
-                    android:contentDescription="Icona temperatura"
+                    android:contentDescription="@string/temperatureIcon_imageDescription"
                     app:tint="@android:color/darker_gray" />
                 <TextView
                     android:id="@+id/textTemperature"
@@ -87,7 +87,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_humidity"
-                    android:contentDescription="Icona umidità"
+                    android:contentDescription="@string/humidityIcon_imageDescription"
                     app:tint="@android:color/darker_gray" />
                 <TextView
                     android:id="@+id/textHumidity"
@@ -107,7 +107,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_wind"
-                    android:contentDescription="Icona vento"
+                    android:contentDescription="@string/windIcon_imageDescription"
                     app:tint="@android:color/darker_gray" />
                 <TextView
                     android:id="@+id/textWind"
@@ -116,9 +116,6 @@
                     android:drawablePadding="4dp"
                     android:gravity="center"/>
             </LinearLayout>
-
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

@@ -7,10 +7,10 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:theme="?attr/actionBarTheme"
-        android:title="Greenhouse Settings"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/black"
+        android:title="@string/settings_activityTitle"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -45,13 +45,14 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Greenhouse Name"
+                            android:text="@string/editName_text"
                             android:textStyle="bold"/>
 
                         <ImageButton
                             android:id="@+id/button_edit_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:contentDescription="@string/startEditing_buttonText"
                             android:src="@drawable/ic_edit"
                             android:background="?attr/selectableItemBackgroundBorderless"/>
                     </LinearLayout>
@@ -62,13 +63,15 @@
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:enabled="false"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:autofillHints="Greenhouse Name"
+                        android:labelFor="@id/gname"/>
 
                     <Button
                         android:id="@+id/button_save_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Save"
+                        android:text="@string/save_buttonText"
                         android:visibility="gone"
                         android:layout_marginTop="8dp"/>
                 </LinearLayout>
@@ -97,13 +100,14 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Air Temperature"
+                            android:text="@string/temperature_textTitle"
                             android:textStyle="bold"/>
 
                         <ImageButton
                             android:id="@+id/button_edit_air_temp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:contentDescription="@string/startEditing_buttonText"
                             android:src="@drawable/ic_edit"
                             android:background="?attr/selectableItemBackgroundBorderless"/>
                     </LinearLayout>
@@ -114,11 +118,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:enabled="false"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:autofillHints="Min Air Temperature"
+                        android:labelFor="@id/min_air_temperature" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Min Air Temperature"/>
+                        android:text="@string/minAirTemperature_text" />
 
                     <EditText
                         android:id="@+id/max_air_temperature"
@@ -126,17 +132,19 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:enabled="false"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:autofillHints="Max Air Temperature"
+                        android:labelFor="@id/max_air_temperature" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Max Air Temperature"/>
+                        android:text="@string/maxAirTemperature_text"/>
 
                     <Button
                         android:id="@+id/button_save_air_temperature"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Save"
+                        android:text="@string/save_buttonText"
                         android:visibility="gone"
                         android:layout_marginTop="8dp"/>
                 </LinearLayout>
@@ -165,13 +173,14 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Air Humidity"
+                            android:text="@string/humidity_textTitle"
                             android:textStyle="bold"/>
 
                         <ImageButton
                             android:id="@+id/button_edit_air_humidity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:contentDescription="@string/startEditing_buttonText"
                             android:src="@drawable/ic_edit"
                             android:background="?attr/selectableItemBackgroundBorderless"/>
                     </LinearLayout>
@@ -182,11 +191,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:enabled="false"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:labelFor="@id/min_air_humidity"
+                        android:autofillHints="Min Air Humidity"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Min Air Humidity"/>
+                        android:text="@string/minAirHumidity_text"/>
 
                     <EditText
                         android:id="@+id/max_air_humidity"
@@ -194,17 +205,19 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:enabled="false"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:labelFor="@id/max_air_humidity"
+                        android:autofillHints="Max Air Humidity"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Max Air Humidity"/>
+                        android:text="@string/maxAirHumidity_text"/>
 
                     <Button
                         android:id="@+id/button_save_air_humidity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Save"
+                        android:text="@string/save_buttonText"
                         android:visibility="gone"
                         android:layout_marginTop="8dp"/>
                 </LinearLayout>
@@ -233,7 +246,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Soil Humidity"
+                            android:text="@string/soilHumidity_textTitle"
                             android:textStyle="bold"/>
 
                         <ImageButton
@@ -241,7 +254,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_edit"
-                            android:background="?attr/selectableItemBackgroundBorderless"/>
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/startEditing_buttonText"/>
+
                     </LinearLayout>
 
                     <EditText
@@ -250,11 +265,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:enabled="false"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:autofillHints="Min Soil Humidity"
+                        android:labelFor="@id/min_soil_humidity"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Min Soil Humidity"/>
+                        android:text="@string/minSoilHumidity_text"/>
 
                     <EditText
                         android:id="@+id/max_soil_humidity"
@@ -262,17 +279,19 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:enabled="false"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:autofillHints="Max Soil Humidity"
+                        android:labelFor="@id/max_soil_humidity"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Max Soil Humidity"/>
+                        android:text="@string/maxSoilHumidity_text"/>
 
                     <Button
                         android:id="@+id/button_save_soil_humidity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Save"
+                        android:text="@string/save_buttonText"
                         android:visibility="gone"
                         android:layout_marginTop="8dp"/>
                 </LinearLayout>
@@ -301,13 +320,14 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Luminosity"
+                            android:text="@string/luminosity_textTitle"
                             android:textStyle="bold"/>
 
                         <ImageButton
                             android:id="@+id/button_edit_luminosity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:contentDescription="@string/startEditing_buttonText"
                             android:src="@drawable/ic_edit"
                             android:background="?attr/selectableItemBackgroundBorderless"/>
                     </LinearLayout>
@@ -318,11 +338,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:enabled="false"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:autofillHints="Min Luminosity"
+                        android:labelFor="@id/min_luminosity"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Min Luminosity"/>
+                        android:text="@string/minLuminosity_text"/>
 
                     <EditText
                         android:id="@+id/max_luminosity"
@@ -330,17 +352,19 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:enabled="false"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:autofillHints="Max Luminosity"
+                        android:labelFor="@id/max_luminosity"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Max Luminosity"/>
+                        android:text="@string/maxLuminosity_text"/>
 
                     <Button
                         android:id="@+id/button_save_luminosity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Save"
+                        android:text="@string/save_buttonText"
                         android:visibility="gone"
                         android:layout_marginTop="8dp"/>
                 </LinearLayout>

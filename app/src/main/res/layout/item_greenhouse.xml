@@ -20,14 +20,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="Greenhouse Name"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/buttonDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_right"
-            android:contentDescription="Details"/>
+            android:contentDescription="@string/details_imageDescription"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

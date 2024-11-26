@@ -17,21 +17,21 @@
         android:id="@+id/nome_cognome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/nome_cognome"
+        android:hint="@string/fullName_text"
         android:layout_marginTop="8dp" />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
+        android:hint="@string/email_text"
         android:layout_marginTop="8dp" />
 
     <EditText
         android:id="@+id/password1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/password"
+        android:hint="@string/password_text"
         android:inputType="textPassword"
         android:layout_marginTop="8dp" />
 
@@ -39,7 +39,7 @@
         android:id="@+id/password2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/ripeti_password"
+        android:hint="@string/repeatPassword_text"
         android:inputType="textPassword"
         android:layout_marginTop="8dp" />
 
@@ -47,6 +47,7 @@
         android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register"
+        android:background="@drawable/rounded_button"
+        android:text="@string/register_buttonText"
         android:layout_marginTop="16dp" />
 </LinearLayout>

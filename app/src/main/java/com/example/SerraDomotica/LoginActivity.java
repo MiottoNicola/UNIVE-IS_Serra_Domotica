@@ -19,11 +19,7 @@ import com.google.android.gms.tasks.Task;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText usernameEditText;
-    private EditText passwordEditText;
-    private Button loginButton;
-    private Button registerButton;
-    private TextView resetPasswordButton;
+    private EditText usernameEditText, passwordEditText;
     private FirebaseAuth mAuth;
 
     @Override
@@ -42,9 +38,9 @@ public class LoginActivity extends AppCompatActivity {
 
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
-        loginButton = findViewById(R.id.login_button);
-        registerButton = findViewById(R.id.register_button);
-        resetPasswordButton = findViewById(R.id.reset_password_button);
+        Button loginButton = findViewById(R.id.login_button);
+        Button registerButton = findViewById(R.id.register_button);
+        TextView resetPasswordButton = findViewById(R.id.reset_password_button);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

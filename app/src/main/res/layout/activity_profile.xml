@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,10 +12,10 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ToolbarStyle"
-            android:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:titleTextColor="@color/black"
+            app:title="Your Profile">
 
             <!-- Logout Icon -->
             <ImageView
@@ -34,6 +35,7 @@
             android:gravity="center_horizontal"
             android:padding="16dp">
             <!-- Account Information Section -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,7 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Account Information"
+                    android:text="@string/accountInformation_text"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
@@ -54,7 +56,9 @@
                     android:id="@+id/buttonResetPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reset Password"
+                    android:background="@drawable/rounded_button"
+                    android:textAllCaps="false"
+                    android:text="@string/reset_password"
                     android:padding="8dp"
                     android:textSize="12sp"/>
             </LinearLayout>
@@ -68,7 +72,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nome Utente: "/>
+                    android:text="@string/fullName_text"/>
 
                 <TextView
                     android:id="@+id/NomeCognome"
@@ -86,7 +90,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email: "/>
+                    android:text="@string/email_text"/>
 
                 <TextView
                     android:id="@+id/Email"
@@ -114,7 +118,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Connected Devices"
+                    android:text="@string/connectedDevices_text"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 

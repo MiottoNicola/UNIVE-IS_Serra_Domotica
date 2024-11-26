@@ -146,12 +146,7 @@ public class ProfileActivity extends AppCompatActivity {
                                             deviceItem.addView(deviceNameView);
                                             deviceItem.addView(readMoreButton);
                                             deviceContainer.addView(deviceItem);
-
-                                        } else {
-                                            Toast.makeText(ProfileActivity.this, "Device name is null", Toast.LENGTH_SHORT).show();
                                         }
-                                    } else {
-                                        Toast.makeText(ProfileActivity.this, "Device does not exist", Toast.LENGTH_SHORT).show();
                                     }
                                 }
 

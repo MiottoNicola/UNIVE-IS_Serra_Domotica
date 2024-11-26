@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +41,6 @@ public class GreenhousesActivity extends AppCompatActivity {
     private GreenhouseAdapter adapter;
     private List<String> greenhouseList;
     private DatabaseReference databaseReference;
-    private FirebaseAuth mAuth;
     private TextView noGreenhousesMessage;
 
     @Override
@@ -48,11 +48,19 @@ public class GreenhousesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_greenhouses);
 
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Your Greenhouses");
+
+        // Abilita la freccia indietro
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(true);
+            getSupportActionBar().setSubtitle(null);
+        }
+
+        // Imposta il titolo manualmente
+        toolbar.setTitle("Your Greenhouses");
 
         ImageView addIcon = findViewById(R.id.addIcon);
         addIcon.setOnClickListener(v -> showAddGreenhouseDialog());
@@ -66,7 +74,7 @@ public class GreenhousesActivity extends AppCompatActivity {
         adapter = new GreenhouseAdapter(greenhouseList, this);
         recyclerView.setAdapter(adapter);
 
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
             fetchGreenhouses(currentUser.getUid());

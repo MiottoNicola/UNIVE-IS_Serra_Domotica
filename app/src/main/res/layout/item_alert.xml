@@ -21,7 +21,7 @@
                 android:id="@+id/image_view_alert_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="alert icon"
+                android:contentDescription="@string/alertIcon_imageDescription"
                 android:src="@drawable/ic_warning"
                 android:layout_marginEnd="8dp"/>
 
@@ -29,7 +29,7 @@
                 android:id="@+id/text_view_alert_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alert"
+                android:text="@string/alerts_activityTitle"
                 android:textStyle="bold"
                 android:textColor="@color/design_default_color_error"
                 android:textSize="18sp"
@@ -41,6 +41,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="not found"/>
+            android:text="@string/notAvailable_text"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
