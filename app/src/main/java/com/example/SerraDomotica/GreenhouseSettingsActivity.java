@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
@@ -18,7 +17,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class GreenhouseSettingsActivity extends AppCompatActivity {
+import java.util.Objects;
+
+public class GreenhouseSettingsActivity extends BaseActivity {
 
     private EditText minAirTemp, maxAirTemp, minAirHumidity, maxAirHumidity, minSoilHumidity, maxSoilHumidity, minLuminosity, maxLuminosity, textName;
     private Button buttonSaveAirTemp, buttonSaveAirHumidity, buttonSaveSoilHumidity, buttonSaveLuminosity, buttonSaveName;
@@ -31,7 +32,7 @@ public class GreenhouseSettingsActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
@@ -54,6 +55,10 @@ public class GreenhouseSettingsActivity extends AppCompatActivity {
         buttonSaveLuminosity = findViewById(R.id.button_save_luminosity);
         buttonSaveName = findViewById(R.id.button_save_name);
 
+        if(greenhouseId == null) {
+            Toast.makeText(this, "Greenhouse ID not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
         configRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config");
 
         fetchDefaultValues();

@@ -2,23 +2,18 @@ package com.example.SerraDomotica;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.DialogInterface;
 import androidx.appcompat.app.AlertDialog;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,11 +25,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class GreenhouseDetailsActivity extends AppCompatActivity {
-    private DatabaseReference databaseReference;
+import java.util.Objects;
+
+public class GreenhouseDetailsActivity extends BaseActivity {
     private TextView textTemperatureValue, textHumidityValue, textLuminosityValue, textHumiditySoilValue, textDate;
-    private Switch switchLight, switchWater;
-    private ImageView delIcon;
+    private SwitchCompat switchLight, switchWater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +38,7 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         String greenhouseName1 = getIntent().getStringExtra("greenhouse_name");
@@ -53,13 +48,8 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("Greenhouse Details");
         }
 
-        delIcon = findViewById(R.id.delIcon);
-        delIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDisconnectDialog();
-            }
-        });
+        ImageView delIcon = findViewById(R.id.delIcon);
+        delIcon.setOnClickListener(v -> showDisconnectDialog());
 
         textTemperatureValue = findViewById(R.id.textTemperatureValue);
         textHumidityValue = findViewById(R.id.textHumidityValue);
@@ -73,7 +63,7 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
         String greenhouseName = getIntent().getStringExtra("greenhouse_name");
         if (greenhouseId != null && greenhouseName != null) {
-            databaseReference = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId);
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId);
             fetchGreenhouseDetails(greenhouseId);
             setupSwitchListeners(greenhouseId);
         } else {
@@ -81,36 +71,27 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
         }
 
         Button historyButton = findViewById(R.id.history_button);
-        historyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GreenhouseDetailsActivity.this, TemperatureChartActivity.class);
-                intent.putExtra("idDevice", greenhouseId);
-                intent.putExtra("greenhouseName", greenhouseName);
-                startActivity(intent);
-            }
+        historyButton.setOnClickListener(v -> {
+            Intent intent = new Intent(GreenhouseDetailsActivity.this, TemperatureChartActivity.class);
+            intent.putExtra("idDevice", greenhouseId);
+            intent.putExtra("greenhouseName", greenhouseName);
+            startActivity(intent);
         });
 
         Button settingsButton = findViewById(R.id.settings_button);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhouseSettingsActivity.class);
-                intent.putExtra("greenhouse_id", greenhouseId);
-                intent.putExtra("greenhouse_name", greenhouseName);
-                startActivity(intent);
-            }
+        settingsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhouseSettingsActivity.class);
+            intent.putExtra("greenhouse_id", greenhouseId);
+            intent.putExtra("greenhouse_name", greenhouseName);
+            startActivity(intent);
         });
 
         Button alertButton = findViewById(R.id.alert_button);
-        alertButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GreenhouseDetailsActivity.this, AlertActivity.class);
-                intent.putExtra("greenhouse_id", greenhouseId);
-                intent.putExtra("greenhouse_name", greenhouseName);
-                startActivity(intent);
-            }
+        alertButton.setOnClickListener(v -> {
+            Intent intent = new Intent(GreenhouseDetailsActivity.this, AlertActivity.class);
+            intent.putExtra("greenhouse_id", greenhouseId);
+            intent.putExtra("greenhouse_name", greenhouseName);
+            startActivity(intent);
         });
     }
 
@@ -181,20 +162,14 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
     }
 
     private void setupSwitchListeners(String greenhouseId) {
-        switchLight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DatabaseReference lightRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config").child("light");
-                lightRef.setValue(isChecked);
-            }
+        switchLight.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            DatabaseReference lightRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config").child("light");
+            lightRef.setValue(isChecked);
         });
 
-        switchWater.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DatabaseReference waterRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config").child("water");
-                waterRef.setValue(isChecked);
-            }
+        switchWater.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            DatabaseReference waterRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config").child("water");
+            waterRef.setValue(isChecked);
         });
     }
 
@@ -211,46 +186,44 @@ public class GreenhouseDetailsActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Disconnect Device")
                 .setMessage("Are you sure you want to disconnect the device?")
-                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Handle the disconnect action
-                        disconnectDevice();
-                    }
+                .setPositiveButton("Confirm", (dialog, which) -> {
+                    // Handle the disconnect action
+                    disconnectDevice();
                 })
                 .setNegativeButton("Cancel", null)
                 .show();
     }
 
     private void disconnectDevice() {
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
 
+        if(greenhouseId == null) {
+            Toast.makeText(this, "No greenhouse ID found", Toast.LENGTH_SHORT).show();
+            return;
+        }
         // Remove the greenhouse ID from the user's devices
         DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices").child(greenhouseId);
-        userDevicesRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    // Set isConnected to false in the greenhouse configuration
-                    DatabaseReference greenhouseConfigRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config").child("isConnected");
-                    greenhouseConfigRef.setValue(false).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(GreenhouseDetailsActivity.this, "Device disconnected", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhousesActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                Toast.makeText(GreenhouseDetailsActivity.this, "Failed to update greenhouse config", Toast.LENGTH_SHORT).show();
-                            }
+        userDevicesRef.removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // Set isConnected to false in the greenhouse configuration
+                DatabaseReference greenhouseConfigRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config").child("isConnected");
+                greenhouseConfigRef.setValue(false).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(GreenhouseDetailsActivity.this, "Device disconnected", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhousesActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(GreenhouseDetailsActivity.this, "Failed to update greenhouse config", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                } else {
-                    Toast.makeText(GreenhouseDetailsActivity.this, "Failed to remove device from user", Toast.LENGTH_SHORT).show();
-                }
+                    }
+                });
+            } else {
+                Toast.makeText(GreenhouseDetailsActivity.this, "Failed to remove device from user", Toast.LENGTH_SHORT).show();
             }
         });
     }}

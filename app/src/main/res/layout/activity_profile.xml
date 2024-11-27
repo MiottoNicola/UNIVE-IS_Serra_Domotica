@@ -22,6 +22,7 @@
                 android:id="@+id/logoutIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/logout_imageDescription"
                 android:src="@drawable/ic_logout"
                 android:layout_gravity="end"
                 android:paddingEnd="12dp"/>
@@ -126,6 +127,7 @@
                     android:id="@+id/buttonAddDevice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/addDevice_imageDescription"
                     android:src="@drawable/ic_add"
                     android:padding="8dp" />
             </LinearLayout>

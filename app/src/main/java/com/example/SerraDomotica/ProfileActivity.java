@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,7 +28,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfileActivity extends AppCompatActivity {
+import java.util.Objects;
+
+public class ProfileActivity extends BaseActivity {
 
     private TextView textNomeCognome, textEmail;
     private ImageView logoutIcon, buttonAddDevice;
@@ -54,21 +54,19 @@ public class ProfileActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Settings");
 
         buttonResetPassword = findViewById(R.id.buttonResetPassword);
-        buttonResetPassword.setOnClickListener(v -> {
-            mAuth.sendPasswordResetEmail(currentUser.getEmail())
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(ProfileActivity.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(ProfileActivity.this, "Failed to send password reset email", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        });
+        buttonResetPassword.setOnClickListener(v -> mAuth.sendPasswordResetEmail(currentUser.getEmail())
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(ProfileActivity.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(ProfileActivity.this, "Failed to send password reset email", Toast.LENGTH_SHORT).show();
+                    }
+                }));
 
         buttonAddDevice = findViewById(R.id.buttonAddDevice);
         buttonAddDevice.setOnClickListener(v -> showAddGreenhouseDialog());
@@ -79,31 +77,26 @@ public class ProfileActivity extends AppCompatActivity {
             databaseReferenceDevices = databaseReference.child("devices");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
                         String nomeCognome = dataSnapshot.child("nome_cognome").getValue(String.class);
                         String email = dataSnapshot.child("email").getValue(String.class);
                         if (nomeCognome != null && email != null) {
                             textNomeCognome.setText(nomeCognome);
                             textEmail.setText(email);
-                        } else {
-                            Toast.makeText(ProfileActivity.this, "NomeCognome or Email is null", Toast.LENGTH_SHORT).show();
                         }
-
-                    } else {
-                        Toast.makeText(ProfileActivity.this, "Profile does not exist", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
-                public void onCancelled(DatabaseError databaseError) {
+                public void onCancelled(@NonNull DatabaseError databaseError) {
                     Toast.makeText(ProfileActivity.this, "Failed to load profile data.", Toast.LENGTH_SHORT).show();
                 }
             });
 
             databaseReferenceDevices.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
                         // Clear existing views
                         deviceContainer.removeAllViews();
@@ -111,11 +104,14 @@ public class ProfileActivity extends AppCompatActivity {
                         // Add devices
                         for (DataSnapshot deviceSnapshot : dataSnapshot.getChildren()) {
                             String deviceId = deviceSnapshot.getKey();
+                            if (deviceId == null) {
+                                continue;
+                            }
                             DatabaseReference deviceRef = FirebaseDatabase.getInstance().getReference("devices").child(deviceId).child("titolo");
 
                             deviceRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     if (dataSnapshot.exists()) {
                                         String deviceName = dataSnapshot.getValue(String.class);
                                         if (deviceName != null) {
@@ -151,7 +147,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 }
 
                                 @Override
-                                public void onCancelled(DatabaseError databaseError) {
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
                                     LinearLayout deviceItem = new LinearLayout(ProfileActivity.this);
                                     deviceItem.setOrientation(LinearLayout.HORIZONTAL);
                                     deviceItem.setGravity(Gravity.CENTER_VERTICAL);
@@ -182,19 +178,14 @@ public class ProfileActivity extends AppCompatActivity {
 
                         deviceItem.addView(noDevice);
                         deviceContainer.addView(deviceItem);
-
-                        Toast.makeText(ProfileActivity.this, "No devices found", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
-                public void onCancelled(DatabaseError databaseError) {
+                public void onCancelled(@NonNull DatabaseError databaseError) {
                     Toast.makeText(ProfileActivity.this, "Failed to load devices.", Toast.LENGTH_SHORT).show();
                 }
             });
-        }else{
-            Toast.makeText(ProfileActivity.this, "User is null", Toast.LENGTH_SHORT).show();
-            finish();
         }
 
         logoutIcon.setOnClickListener(v -> {
@@ -226,19 +217,11 @@ public class ProfileActivity extends AppCompatActivity {
         builder.setView(input);
 
         // Set up the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String greenhouseName = input.getText().toString();
-                addGreenhouse(greenhouseName);
-            }
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            String greenhouseName = input.getText().toString();
+            addGreenhouse(greenhouseName);
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 
         builder.show();
     }
@@ -252,40 +235,34 @@ public class ProfileActivity extends AppCompatActivity {
                     Boolean isConnected = dataSnapshot.child("config").child("isConnected").getValue(Boolean.class);
                     if (isConnected != null && !isConnected) {
                         // Update isConnected to true
-                        deviceRef.child("config").child("isConnected").setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    // Add the greenhouse ID to the user's devices
-                                    String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                    DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices");
-                                    userDevicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot userDevicesSnapshot) {
-                                            if (!userDevicesSnapshot.exists()) {
-                                                userDevicesRef.setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                        if (task.isSuccessful()) {
-                                                            addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
-                                                        } else {
-                                                            Toast.makeText(ProfileActivity.this, "Failed to add root /devices to user", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    }
-                                                });
-                                            } else {
-                                                addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
-                                            }
+                        deviceRef.child("config").child("isConnected").setValue(true).addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                // Add the greenhouse ID to the user's devices
+                                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices");
+                                userDevicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot userDevicesSnapshot) {
+                                        if (!userDevicesSnapshot.exists()) {
+                                            userDevicesRef.setValue(true).addOnCompleteListener(task1 -> {
+                                                if (task1.isSuccessful()) {
+                                                    addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
+                                                } else {
+                                                    Toast.makeText(ProfileActivity.this, "Failed to add root /devices to user", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                        } else {
+                                            addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
                                         }
+                                    }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                                            Toast.makeText(ProfileActivity.this, "Failed to check user devices", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-                                } else {
-                                    Toast.makeText(ProfileActivity.this, "Failed to update greenhouse config", Toast.LENGTH_SHORT).show();
-                                }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        Toast.makeText(ProfileActivity.this, "Failed to check user devices", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(ProfileActivity.this, "Failed to update greenhouse config", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
@@ -304,14 +281,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void addGreenhouseToUserDevices(DatabaseReference userDevicesRef, String greenhouseId) {
-        userDevicesRef.child(greenhouseId).setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(ProfileActivity.this, "Greenhouse added successfully", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(ProfileActivity.this, "Failed to add greenhouse to user devices", Toast.LENGTH_SHORT).show();
-                }
+        userDevicesRef.child(greenhouseId).setValue(true).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(ProfileActivity.this, "Greenhouse added successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(ProfileActivity.this, "Failed to add greenhouse to user devices", Toast.LENGTH_SHORT).show();
             }
         });
     }

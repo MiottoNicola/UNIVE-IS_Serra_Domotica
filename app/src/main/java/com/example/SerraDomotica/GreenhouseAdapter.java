@@ -2,6 +2,7 @@ package com.example.SerraDomotica;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,9 @@ public class GreenhouseAdapter extends RecyclerView.Adapter<GreenhouseAdapter.Gr
         holder.textViewGreenhouseName.setText(greenhouseName);
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, GreenhouseDetailsActivity.class);
+            Log.d("GreenhouseAdapter", "intent: " + intent.toString());
+            Log.d("GreenhouseAdapter", "Greenhouse name: " + greenhouseName);
+            Log.d("GreenhouseAdapter", "Greenhouse id: " + greenhouseId);
             intent.putExtra("greenhouse_name", greenhouseName);
             intent.putExtra("greenhouse_id", greenhouseId);
             context.startActivity(intent);

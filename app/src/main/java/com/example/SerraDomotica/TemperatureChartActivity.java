@@ -3,7 +3,7 @@ package com.example.SerraDomotica;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -18,8 +18,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class TemperatureChartActivity extends AppCompatActivity {
+public class TemperatureChartActivity extends BaseActivity {
 
     private LineChart lineChartTemperature;
     private LineChart lineChartAirHumidity;
@@ -34,7 +35,7 @@ public class TemperatureChartActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle(getIntent().getStringExtra("greenhouseName") + " - History");
 
@@ -52,7 +53,7 @@ public class TemperatureChartActivity extends AppCompatActivity {
     private void fetchDataFromDatabase() {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<Entry> temperatureEntries = new ArrayList<>();
                 List<Entry> airHumidityEntries = new ArrayList<>();
                 List<Entry> soilHumidityEntries = new ArrayList<>();
@@ -60,7 +61,6 @@ public class TemperatureChartActivity extends AppCompatActivity {
 
                 int index = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String key = snapshot.getKey();
                     float airTemperature = snapshot.child("air_temperature").getValue(Float.class);
                     float airHumidity = snapshot.child("air_humidity").getValue(Float.class);
                     float soilHumidity = snapshot.child("soil_humidity").getValue(Float.class);
@@ -80,7 +80,7 @@ public class TemperatureChartActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle possible errors.
             }
         });
@@ -94,7 +94,6 @@ public class TemperatureChartActivity extends AppCompatActivity {
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
-        YAxis leftAxis = chart.getAxisLeft();
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setEnabled(false);
 

@@ -1,25 +1,17 @@
 package com.example.SerraDomotica;
 
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,10 +29,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GreenhousesActivity extends AppCompatActivity {
+public class GreenhousesActivity extends BaseActivity {
     private GreenhouseAdapter adapter;
     private List<String> greenhouseList;
-    private DatabaseReference databaseReference;
     private TextView noGreenhousesMessage;
 
     @Override
@@ -138,12 +129,6 @@ public class GreenhousesActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void onGreenhouseClick(String greenhouseName) {
-        Intent intent = new Intent(this, GreenhouseDetailsActivity.class);
-        intent.putExtra("greenhouse_name", greenhouseName);
-        startActivity(intent);
-    }
-
     private void showAddGreenhouseDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add Greenhouse");
@@ -154,19 +139,11 @@ public class GreenhousesActivity extends AppCompatActivity {
         builder.setView(input);
 
         // Set up the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String greenhouseName = input.getText().toString();
-                addGreenhouse(greenhouseName);
-            }
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            String greenhouseName = input.getText().toString();
+            addGreenhouse(greenhouseName);
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 
         builder.show();
     }
@@ -180,40 +157,34 @@ public class GreenhousesActivity extends AppCompatActivity {
                     Boolean isConnected = dataSnapshot.child("config").child("isConnected").getValue(Boolean.class);
                     if (isConnected != null && !isConnected) {
                         // Update isConnected to true
-                        deviceRef.child("config").child("isConnected").setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    // Add the greenhouse ID to the user's devices
-                                    String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                    DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices");
-                                    userDevicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot userDevicesSnapshot) {
-                                            if (!userDevicesSnapshot.exists()) {
-                                                userDevicesRef.setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                        if (task.isSuccessful()) {
-                                                            addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
-                                                        } else {
-                                                            Toast.makeText(GreenhousesActivity.this, "Failed to add root /devices to user", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    }
-                                                });
-                                            } else {
-                                                addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
-                                            }
+                        deviceRef.child("config").child("isConnected").setValue(true).addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                // Add the greenhouse ID to the user's devices
+                                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices");
+                                userDevicesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot userDevicesSnapshot) {
+                                        if (!userDevicesSnapshot.exists()) {
+                                            userDevicesRef.setValue(true).addOnCompleteListener(task1 -> {
+                                                if (task1.isSuccessful()) {
+                                                    addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
+                                                } else {
+                                                    Toast.makeText(GreenhousesActivity.this, "Failed to add root /devices to user", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                        } else {
+                                            addGreenhouseToUserDevices(userDevicesRef, greenhouseId);
                                         }
+                                    }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                                            Toast.makeText(GreenhousesActivity.this, "Failed to check user devices", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-                                } else {
-                                    Toast.makeText(GreenhousesActivity.this, "Failed to update greenhouse config", Toast.LENGTH_SHORT).show();
-                                }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        Toast.makeText(GreenhousesActivity.this, "Failed to check user devices", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(GreenhousesActivity.this, "Failed to update greenhouse config", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
@@ -232,14 +203,11 @@ public class GreenhousesActivity extends AppCompatActivity {
     }
 
     private void addGreenhouseToUserDevices(DatabaseReference userDevicesRef, String greenhouseId) {
-        userDevicesRef.child(greenhouseId).setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(GreenhousesActivity.this, "Greenhouse added successfully", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(GreenhousesActivity.this, "Failed to add greenhouse to user devices", Toast.LENGTH_SHORT).show();
-                }
+        userDevicesRef.child(greenhouseId).setValue(true).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(GreenhousesActivity.this, "Greenhouse added successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(GreenhousesActivity.this, "Failed to add greenhouse to user devices", Toast.LENGTH_SHORT).show();
             }
         });
     }

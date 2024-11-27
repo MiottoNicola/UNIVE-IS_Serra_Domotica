@@ -2,34 +2,35 @@
     <string name="app_name">Your Greenhouses</string>
 
     <!-- activity_alerts.xml -->
-    <string name="noAlerts_text">No alerts available</string>
+    <string name="noAlert_text">No alerts available!</string>
 
     <!-- user profile -->
-    <string name="fullName_text">Full name:</string>
-    <string name="password_text">Password:</string>
-    <string name="repeatPassword_text">Repeat Password:</string>
-    <string name="email_text">Email:</string>
+    <string name="fullName_text">"Full name: "</string>
+    <string name="password_text">"Password: "</string>
+    <string name="repeatPassword_text">"Repeat Password: "</string>
+    <string name="email_text">"Email: "</string>
     <string name="reset_password">Reset Password</string>
-    <string name="login_buttonText">login</string>
+    <string name="login_buttonText">Login</string>
     <string name="or_text">or</string>
     <string name="register_buttonText">Register</string>
 
     <!-- iconDescription -->
-    <string name="profileIcon_imageDescription">Profile Icon</string>
+    <string name="profileIcon_imageDescription">Profile Menu</string>
     <string name="deleteGreenhouse_imageDescription">Delete Greenhouse</string>
-    <string name="temperatureIcon_imageDescription">Temperature Icon</string>
-    <string name="humidityIcon_imageDescription">Humidity icon</string>
-    <string name="soilHumidityIcon_imageDescription">Soil Humidity Icon</string>
-    <string name="luminosityIcon_imageDescription">Luminosity Icon</string>
-    <string name="alertIcon_imageDescription">alert icon</string>
+    <string name="temperatureIcon_imageDescription">Temperature</string>
+    <string name="humidityIcon_imageDescription">Air Humidity</string>
+    <string name="soilHumidityIcon_imageDescription">Soil Humidity</string>
+    <string name="luminosityIcon_imageDescription">Luminosity</string>
+    <string name="alertIcon_imageDescription">Alert</string>
     <string name="details_imageDescription">Details</string>
-    <string name="weatherIcon_imageDescription">Weather icon</string>
-    <string name="windIcon_imageDescription">Wind icon</string>
+    <string name="weatherIcon_imageDescription">Weather</string>
+    <string name="windIcon_imageDescription">Wind</string>
+    <string name="noInternet_imageDescription">No Internet Connection!</string>
 
     <!-- textTitle -->
     <string name="information_textTitle">Information</string>
     <string name="temperature_textTitle">Temperature</string>
-    <string name="humidity_textTitle">Humidity</string>
+    <string name="humidity_textTitle">Air Humidity</string>
     <string name="luminosity_textTitle">Luminosity</string>
     <string name="soilHumidity_textTitle">Soil Humidity</string>
     <string name="irrigation_textTitle">Irrigation</string>
@@ -44,31 +45,36 @@
 
     <!-- text -->
     <string name="defaultTemperature_text">00.0 C</string>
-    <string name="defaultHumidity_text">0%\n</string>
-    <string name="defaultSoilhumidity_text">50%</string>
-    <string name="defaultLuminodity_text">50%</string>
+    <string name="defaultSoilhumidity_text">0%</string>
+    <string name="defaultLuminodity_text">0%</string>
     <string name="editName_text">Greenhouse Name</string>
-    <string name="minAirTemperature_text">Min Air Temperature</string>
-    <string name="maxAirTemperature_text">Max Air Temperature</string>
+    <string name="minAirTemperature_text">Min Temperature</string>
+    <string name="maxAirTemperature_text">Max Temperature</string>
     <string name="minAirHumidity_text">Min Air Humidity</string>
     <string name="maxAirHumidity_text">Max Air Humidity</string>
     <string name="minSoilHumidity_text">Min Soil Humidity</string>
     <string name="maxSoilHumidity_text">Max Soil Humidity</string>
     <string name="minLuminosity_text">Min Luminosity</string>
     <string name="maxLuminosity_text">Max Luminosity</string>
-    <string name="noGreenhousesFound_text">No greenhouses found</string>
+    <string name="noGreenhousesFound_text">No greenhouses found!</string>
     <string name="accountInformation_text">Account Information</string>
-    <string name="connectedDevices_text">Connected Devices</string>
-    <string name="notAvailable_text">not available</string>
+    <string name="connectedDevices_text">Connected Greenhouses</string>
+    <string name="notAvailable_text">Not available!</string>
     <string name="weatherForecast_text">Weather Forecast</string>
+    <string name="noInternet_text">No Internet Connection!</string>
+    <string name="weatherError_text">No Weather Data Found</string>
 
     <!-- buttonText -->
-    <string name="startEditing_buttonText">Start editing settings</string>
-    <string name="viewGreenhouses_buttonText">View Greenhouses</string>
+    <string name="startEditing_buttonText">Start Editing Settings</string>
+    <string name="viewGreenhouses_buttonText">Greenhouses</string>
     <string name="save_buttonText">Save</string>
     <string name="cancel_buttonText">Cancel</string>
 
     <!-- buttonDescription -->
     <string name="addGreenhouse_buttonDescription">Add Greenhouse</string>
     <string name="deleteGreenhouse_buttonDescription">Delete Greenhouse</string>
+    <string name="defaultHumidity_text">0%</string>
+    <string name="login_imageDescription">Login</string>
+    <string name="logout_imageDescription">Logout</string>
+    <string name="addDevice_imageDescription">Add Greenghouses</string>
 </resources>

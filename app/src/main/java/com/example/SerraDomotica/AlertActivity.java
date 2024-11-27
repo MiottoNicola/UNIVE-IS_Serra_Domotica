@@ -7,8 +7,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,8 +19,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class AlertActivity extends AppCompatActivity {
+public class AlertActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private AlertAdapter alertAdapter;
@@ -40,7 +39,7 @@ public class AlertActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle(greenhouseName + " - Alerts");
 
@@ -51,9 +50,12 @@ public class AlertActivity extends AppCompatActivity {
         alertAdapter = new AlertAdapter(alertList);
         recyclerView.setAdapter(alertAdapter);
 
-        alertRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("alert");
-
-        fetchAlerts();
+        if (greenhouseId == null) {
+            Toast.makeText(this, "Greenhouse ID not found", Toast.LENGTH_SHORT).show();
+        } else {
+            alertRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("alert");
+            fetchAlerts();
+        }
     }
 
     private void fetchAlerts() {

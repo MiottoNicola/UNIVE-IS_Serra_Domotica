@@ -31,12 +31,23 @@
             android:textColor="@android:color/darker_gray"
             android:layout_marginBottom="8dp"/>
 
+        <TextView
+            android:id="@+id/textError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:visibility="visible"
+            android:text="@string/weatherError_text" />
+
         <!-- Icona meteo -->
         <ImageView
             android:id="@+id/weatherIcon"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/ic_launcher_foreground"
+            android:visibility="invisible"
             android:contentDescription="@string/weatherIcon_imageDescription"
             android:layout_gravity="center"/>
 
@@ -64,10 +75,12 @@
                 android:orientation="horizontal"
                 android:gravity="center">
                 <ImageView
+                    android:id="@+id/iconTemperature"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_temperature"
                     android:contentDescription="@string/temperatureIcon_imageDescription"
+                    android:visibility="invisible"
                     app:tint="@android:color/darker_gray" />
                 <TextView
                     android:id="@+id/textTemperature"
@@ -84,10 +97,12 @@
                 android:orientation="horizontal"
                 android:gravity="center">
                 <ImageView
+                    android:id="@+id/iconHumidity"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_humidity"
                     android:contentDescription="@string/humidityIcon_imageDescription"
+                    android:visibility="invisible"
                     app:tint="@android:color/darker_gray" />
                 <TextView
                     android:id="@+id/textHumidity"
@@ -104,10 +119,12 @@
                 android:orientation="horizontal"
                 android:gravity="center">
                 <ImageView
+                    android:id="@+id/iconWind"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_wind"
                     android:contentDescription="@string/windIcon_imageDescription"
+                    android:visibility="invisible"
                     app:tint="@android:color/darker_gray" />
                 <TextView
                     android:id="@+id/textWind"

@@ -25,7 +25,6 @@ public class FirebaseUtils {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if (currentUser == null) {
-            // User is not logged in, redirect to login activity
             redirectToLogin(context);
             return;
         }

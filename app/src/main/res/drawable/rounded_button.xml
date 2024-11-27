@@ -21,7 +21,7 @@
     <item>
         <shape android:shape="rectangle">
             <solid android:color="#B5EAD7" /> <!-- Verde pastello tenue -->
-            <corners android:radius="16dp" />
+            <corners android:radius="20dp" />
             <stroke android:width="2dp" android:color="#91D5C0" /> <!-- Verde leggermente più intenso -->
         </shape>
     </item>
