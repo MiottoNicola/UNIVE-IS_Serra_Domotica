@@ -1,27 +1,20 @@
 package com.example.SerraDomotica;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 
 import java.util.Objects;
 
 public class ForgotPasswordActivity extends BaseActivity {
 
-    private static final String TAG = "ForgotPasswordActivity";
     private EditText emailEditText;
-    private Button resetPasswordButton;
     private FirebaseAuth mAuth;
 
     @Override
@@ -33,7 +26,7 @@ public class ForgotPasswordActivity extends BaseActivity {
         mAuth = FirebaseAuth.getInstance();
 
         emailEditText = findViewById(R.id.email);
-        resetPasswordButton = findViewById(R.id.reset_password_button);
+        Button resetPasswordButton = findViewById(R.id.reset_password_button);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -44,23 +37,16 @@ public class ForgotPasswordActivity extends BaseActivity {
         resetPasswordButton.setOnClickListener(v -> {
             String email = emailEditText.getText().toString();
             if (email.isEmpty()) {
-                Toast.makeText(ForgotPasswordActivity.this, "Please enter your email address.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ForgotPasswordActivity.this, getString(R.string.emailEmpty_toastText), Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            Log.d(TAG, "Reset password button clicked");
-            Log.d(TAG, "Email: " + email);
-
             mAuth.sendPasswordResetEmail(email)
-                    .addOnCompleteListener(ForgotPasswordActivity.this, new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(ForgotPasswordActivity.this, "Password reset email sent.", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(ForgotPasswordActivity.this, "Failed to send password reset email.", Toast.LENGTH_SHORT).show();
-                                Log.e(TAG, "Failed to send password reset email", task.getException());
-                            }
+                    .addOnCompleteListener(ForgotPasswordActivity.this, task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(ForgotPasswordActivity.this, getString(R.string.resetPasswordSuccess_toastText), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ForgotPasswordActivity.this, getString(R.string.resetPasswordFailed_toastText), Toast.LENGTH_SHORT).show();
                         }
                     });
         });

@@ -2,6 +2,7 @@ package com.example.SerraDomotica;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -37,7 +38,7 @@ public class TemperatureChartActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle(getIntent().getStringExtra("greenhouseName") + " - History");
+        getSupportActionBar().setTitle(getIntent().getStringExtra("greenhouseName") + " - "+getString(R.string.history_activityTitle));
 
         lineChartTemperature = findViewById(R.id.lineChartTemperature);
         lineChartAirHumidity = findViewById(R.id.lineChartAirHumidity);
@@ -81,7 +82,7 @@ public class TemperatureChartActivity extends BaseActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle possible errors.
+                Toast.makeText(TemperatureChartActivity.this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
             }
         });
     }

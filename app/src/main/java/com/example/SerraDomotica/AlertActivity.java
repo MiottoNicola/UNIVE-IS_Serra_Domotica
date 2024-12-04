@@ -22,8 +22,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class AlertActivity extends BaseActivity {
-
-    private RecyclerView recyclerView;
     private AlertAdapter alertAdapter;
     private List<String> alertList;
     private DatabaseReference alertRef;
@@ -41,17 +39,17 @@ public class AlertActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle(greenhouseName + " - Alerts");
+        getSupportActionBar().setTitle(greenhouseName + " - " + getString(R.string.alerts_activityTitle));
 
         textViewNoAlerts = findViewById(R.id.text_view_no_alerts);
-        recyclerView = findViewById(R.id.recycler_view_alerts);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_alerts);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         alertList = new ArrayList<>();
         alertAdapter = new AlertAdapter(alertList);
         recyclerView.setAdapter(alertAdapter);
 
         if (greenhouseId == null) {
-            Toast.makeText(this, "Greenhouse ID not found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.IDNotFound_toastText), Toast.LENGTH_SHORT).show();
         } else {
             alertRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("alert");
             fetchAlerts();
@@ -73,7 +71,7 @@ public class AlertActivity extends BaseActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(AlertActivity.this, "Failed to load alerts", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AlertActivity.this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
             }
         });
     }

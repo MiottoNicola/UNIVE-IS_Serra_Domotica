@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Your Greenhouses</string>
+    <string name="app_name" translatable="false">Your Greenhouses</string>
 
     <!-- activity_alerts.xml -->
     <string name="noAlert_text">No alerts available!</string>
@@ -42,11 +42,15 @@
     <string name="alerts_activityTitle">Alerts</string>
     <string name="history_activityTitle">History</string>
     <string name="settings_activityTitle">Settings</string>
+    <string name="login_activityTitle">Login</string>
+    <string name="register_activityTitle">Register</string>
+    <string name="profile_activityTitle">Profile</string>
+    <string name="greenhouseDetails_activityTitle">Greenhouse Details</string>
 
     <!-- text -->
-    <string name="defaultTemperature_text">00.0 C</string>
-    <string name="defaultSoilhumidity_text">0%</string>
-    <string name="defaultLuminodity_text">0%</string>
+    <string name="defaultTemperature_text" translatable="false">00.0 C</string>
+    <string name="defaultSoilhumidity_text" translatable="false">0%</string>
+    <string name="defaultLuminodity_text" translatable="false">0%</string>
     <string name="editName_text">Greenhouse Name</string>
     <string name="minAirTemperature_text">Min Temperature</string>
     <string name="maxAirTemperature_text">Max Temperature</string>
@@ -63,18 +67,52 @@
     <string name="weatherForecast_text">Weather Forecast</string>
     <string name="noInternet_text">No Internet Connection!</string>
     <string name="weatherError_text">No Weather Data Found</string>
+    <string name="greenhouseID_textHint">Greenhouse ID</string>
+    <string name="lastData_text">Last Update: </string>
 
     <!-- buttonText -->
     <string name="startEditing_buttonText">Start Editing Settings</string>
-    <string name="viewGreenhouses_buttonText">Greenhouses</string>
+    <string name="viewGreenhouses_buttonText">View Greenhouses</string>
     <string name="save_buttonText">Save</string>
+    <string name="confirm_buttonText">Confirm</string>
     <string name="cancel_buttonText">Cancel</string>
+
 
     <!-- buttonDescription -->
     <string name="addGreenhouse_buttonDescription">Add Greenhouse</string>
     <string name="deleteGreenhouse_buttonDescription">Delete Greenhouse</string>
-    <string name="defaultHumidity_text">0%</string>
+    <string name="defaultHumidity_text" translatable="false">0%</string>
     <string name="login_imageDescription">Login</string>
     <string name="logout_imageDescription">Logout</string>
-    <string name="addDevice_imageDescription">Add Greenghouses</string>
+    <string name="addDevice_imageDescription">Add Greenhouses</string>
+
+    <!-- toastText -->
+    <string name="IDNotFound_toastText">Greenhouse not found!</string>
+    <string name="failedLoadData_toastText">Failed to load data!</string>
+    <string name="failedSaveData_toastText">Failed to save data!</string>
+    <string name="saveData_toastText">Data saved!</string>
+    <string name="notValidData_toastText">Not valid data!</string>
+    <string name="failedDeleteData_toastText">Failed to delete data!</string>
+    <string name="emailEmpty_toastText">Email is empty!</string>
+    <string name="passwordEmpty_toastText">Password is empty!</string>
+    <string name="resetPasswordSuccess_toastText">Password reset email sent!</string>
+    <string name="resetPasswordFailed_toastText">Failed to send password reset email!</string>
+    <string name="registerSuccess_toastText">Registered successfully!</string>
+    <string name="registerFailed_toastText">Failed to register!</string>
+    <string name="emptyField_toastText">Empty field!</string>
+    <string name="passwordNotMatch_toastText">Passwords do not match!</string>
+    <string name="failedLogin_toastText">Failed to login!</string>
+    <string name="loginSuccess_toastText">Logged in successfully!</string>
+    <string name="logoutSuccess_toastText">Logged out successfully!</string>
+    <string name="devideDisconnected_toastText">Greenhouse disconnected!</string>
+    <string name="failedDevideDisconnected_toastText">Failed to disconnect greenhouse!</string>
+    <string name="notAuthenticatedUser_toastText">Not authenticated user!</string>
+    <string name="greenhouseAlredyConnected_toastText">Greenhouse already connected!</string>
+    <string name="succConnectGreenhouse_toastText">Greenhouse connected!</string>
+    <string name="failedConnectGreenhouse_toastText">Failed to connect greenhouse!</string>
+
+    <!-- dialogText -->
+    <string name="deleteGreenhouse_dialogText">Are you sure you want to disconnect this greenhouse?</string>
+    <string name="disconnectedGreenhouse_dialogTitle">Disconnected Greenhouse</string>
+
 </resources>

@@ -293,12 +293,17 @@
                         android:id="@+id/switchWater"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"/>
+                        android:paddingBottom="8dp"
+                        app:thumbTint="@color/colorPrimary"
+                        app:trackTint="@color/colorPrimary"/>
+
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/switchLight"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        app:thumbTint="@color/colorPrimary"
+                        app:trackTint="@color/colorPrimary"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

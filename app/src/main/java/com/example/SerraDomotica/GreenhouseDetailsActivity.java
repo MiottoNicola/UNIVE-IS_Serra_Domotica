@@ -3,21 +3,16 @@ package com.example.SerraDomotica;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.DialogInterface;
 import androidx.appcompat.app.AlertDialog;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,7 +40,7 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         if (greenhouseName1 != null) {
             getSupportActionBar().setTitle(greenhouseName1);
         } else {
-            getSupportActionBar().setTitle("Greenhouse Details");
+            getSupportActionBar().setTitle(getString(R.string.greenhouseDetails_activityTitle));
         }
 
         ImageView delIcon = findViewById(R.id.delIcon);
@@ -63,11 +58,11 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
         String greenhouseName = getIntent().getStringExtra("greenhouse_name");
         if (greenhouseId != null && greenhouseName != null) {
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId);
             fetchGreenhouseDetails(greenhouseId);
             setupSwitchListeners(greenhouseId);
         } else {
-            Toast.makeText(this, "No greenhouse ID or name provided", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhousesActivity.class);
         }
 
         Button historyButton = findViewById(R.id.history_button);
@@ -113,27 +108,27 @@ public class GreenhouseDetailsActivity extends BaseActivity {
                     if(dateKey != null) {
                         dateKey = dateKey.replace("_", ", ");
                         dateKey = dateKey.replace("-", "/");
-                        textDate.setText("Last update: "+dateKey);
+                        textDate.setText(String.format("%s%s", getString(R.string.lastData_text), dateKey));
                     }
 
                     if (airTemperature != null) {
-                        textTemperatureValue.setText(airTemperature.toString()+"°C");
+                        textTemperatureValue.setText(String.format("%s°C", airTemperature));
                     }
                     if (airHumidity != null) {
-                        textHumidityValue.setText(airHumidity.toString()+"%");
+                        textHumidityValue.setText(String.format("%s%%", airHumidity));
                     }
                     if (luminosity != null) {
-                        textLuminosityValue.setText(luminosity.toString()+"%");
+                        textLuminosityValue.setText(String.format("%s%%", luminosity));
                     }
                     if (soilHumidity != null) {
-                        textHumiditySoilValue.setText(soilHumidity.toString()+"%");
+                        textHumiditySoilValue.setText(String.format("%s%%", soilHumidity));
                     }
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(GreenhouseDetailsActivity.this, "Failed to load greenhouse details", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GreenhouseDetailsActivity.this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -156,7 +151,7 @@ public class GreenhouseDetailsActivity extends BaseActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(GreenhouseDetailsActivity.this, "Failed to load greenhouse config", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GreenhouseDetailsActivity.this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -181,49 +176,48 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     private void showDisconnectDialog() {
-        new AlertDialog.Builder(this)
-                .setTitle("Disconnect Device")
-                .setMessage("Are you sure you want to disconnect the device?")
-                .setPositiveButton("Confirm", (dialog, which) -> {
-                    // Handle the disconnect action
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.disconnectedGreenhouse_dialogTitle))
+                .setMessage(getString(R.string.deleteGreenhouse_dialogText))
+                .setPositiveButton(getString(R.string.confirm_buttonText), (dialogInterface, which) -> {
                     disconnectDevice();
                 })
-                .setNegativeButton("Cancel", null)
-                .show();
-    }
+                .setNegativeButton(getString(R.string.cancel_buttonText), null)
+                .create();
 
+        dialog.setOnShowListener(dialogInterface -> {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.black));
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.black));
+        });
+
+        dialog.show();
+    }
     private void disconnectDevice() {
         String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
 
         if(greenhouseId == null) {
-            Toast.makeText(this, "No greenhouse ID found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.IDNotFound_toastText), Toast.LENGTH_SHORT).show();
             return;
         }
-        // Remove the greenhouse ID from the user's devices
         DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("devices").child(greenhouseId);
         userDevicesRef.removeValue().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                // Set isConnected to false in the greenhouse configuration
                 DatabaseReference greenhouseConfigRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config").child("isConnected");
-                greenhouseConfigRef.setValue(false).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(GreenhouseDetailsActivity.this, "Device disconnected", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhousesActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Toast.makeText(GreenhouseDetailsActivity.this, "Failed to update greenhouse config", Toast.LENGTH_SHORT).show();
-                        }
+                greenhouseConfigRef.setValue(false).addOnCompleteListener(task1 -> {
+                    if (task1.isSuccessful()) {
+                        Toast.makeText(GreenhouseDetailsActivity.this, getString(R.string.devideDisconnected_toastText), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhousesActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(GreenhouseDetailsActivity.this, getString(R.string.failedSaveData_toastText), Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
-                Toast.makeText(GreenhouseDetailsActivity.this, "Failed to remove device from user", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GreenhouseDetailsActivity.this, getString(R.string.failedDevideDisconnected_toastText), Toast.LENGTH_SHORT).show();
             }
         });
     }}

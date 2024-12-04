@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class GreenhouseSettingsActivity extends BaseActivity {
@@ -37,7 +38,7 @@ public class GreenhouseSettingsActivity extends BaseActivity {
 
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
         String greenhouseName = getIntent().getStringExtra("greenhouse_name");
-        getSupportActionBar().setTitle(greenhouseName + " - Settings");
+        getSupportActionBar().setTitle(greenhouseName + " - "+getString(R.string.settings_activityTitle));
 
         minAirTemp = findViewById(R.id.min_air_temperature);
         maxAirTemp = findViewById(R.id.max_air_temperature);
@@ -56,7 +57,7 @@ public class GreenhouseSettingsActivity extends BaseActivity {
         buttonSaveName = findViewById(R.id.button_save_name);
 
         if(greenhouseId == null) {
-            Toast.makeText(this, "Greenhouse ID not found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.noGreenhousesFound_text), Toast.LENGTH_SHORT).show();
             return;
         }
         configRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config");
@@ -78,7 +79,7 @@ public class GreenhouseSettingsActivity extends BaseActivity {
             String newName = textName.getText().toString();
             FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("titolo").setValue(newName);
             disableEditing(textName, textName, buttonSaveName);
-            Toast.makeText(this, "Name saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.saveData_toastText), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(GreenhouseSettingsActivity.this, GreenhousesActivity.class);
             startActivity(intent);
         });
@@ -89,20 +90,20 @@ public class GreenhouseSettingsActivity extends BaseActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    minAirTemp.setText(dataSnapshot.child("min_temp").getValue(Float.class).toString());
-                    maxAirTemp.setText(dataSnapshot.child("max_temp").getValue(Float.class).toString());
-                    minAirHumidity.setText(dataSnapshot.child("min_air_hum").getValue(Integer.class).toString());
-                    maxAirHumidity.setText(dataSnapshot.child("max_air_hum").getValue(Integer.class).toString());
-                    minSoilHumidity.setText(dataSnapshot.child("min_soil_hum").getValue(Integer.class).toString());
-                    maxSoilHumidity.setText(dataSnapshot.child("max_soil_hum").getValue(Integer.class).toString());
-                    minLuminosity.setText(dataSnapshot.child("min_lum").getValue(Integer.class).toString());
-                    maxLuminosity.setText(dataSnapshot.child("max_lum").getValue(Integer.class).toString());
+                    minAirTemp.setText(String.format(Locale.getDefault(), "%.2f", dataSnapshot.child("min_temp").getValue(Float.class)));
+                    maxAirTemp.setText(String.format(Locale.getDefault(), "%.2f", dataSnapshot.child("max_temp").getValue(Float.class)));
+                    minAirHumidity.setText(String.format(Locale.getDefault(), "%d", dataSnapshot.child("min_air_hum").getValue(Integer.class)));
+                    maxAirHumidity.setText(String.format(Locale.getDefault(), "%d", dataSnapshot.child("max_air_hum").getValue(Integer.class)));
+                    minSoilHumidity.setText(String.format(Locale.getDefault(), "%d", dataSnapshot.child("min_soil_hum").getValue(Integer.class)));
+                    maxSoilHumidity.setText(String.format(Locale.getDefault(), "%d", dataSnapshot.child("max_soil_hum").getValue(Integer.class)));
+                    minLuminosity.setText(String.format(Locale.getDefault(), "%d", dataSnapshot.child("min_lum").getValue(Integer.class)));
+                    maxLuminosity.setText(String.format(Locale.getDefault(), "%d", dataSnapshot.child("max_lum").getValue(Integer.class)));
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(GreenhouseSettingsActivity.this, "Failed to load default values", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GreenhouseSettingsActivity.this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -125,7 +126,7 @@ public class GreenhouseSettingsActivity extends BaseActivity {
             double maxValue = Double.parseDouble(maxField.getText().toString());
 
             if(minValue >= maxValue) {
-                Toast.makeText(this, "Min value should be less than max value", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.notValidData_toastText), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -133,9 +134,9 @@ public class GreenhouseSettingsActivity extends BaseActivity {
             configRef.child(maxKey).setValue(maxValue);
 
             disableEditing(minField, maxField, saveButton);
-            Toast.makeText(this, "Settings saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.saveData_toastText), Toast.LENGTH_SHORT).show();
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Please enter valid numbers", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.notValidData_toastText), Toast.LENGTH_SHORT).show();
         }
     }
 

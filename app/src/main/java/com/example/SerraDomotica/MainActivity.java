@@ -35,6 +35,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.Priority;
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 public class MainActivity extends BaseActivity {
 
     private static final int REQUEST_LOCATION_PERMISSION = 1;
@@ -55,7 +57,7 @@ public class MainActivity extends BaseActivity {
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     Log.d("GPS", "GPS enabled");
-                    requestLocationUpdates(); // Riattiva gli aggiornamenti se il GPS è attivo
+                    requestLocationUpdates();
                 } else {
                     Log.d("GPS", "GPS disabled");
                     showErrorState();
@@ -76,7 +78,6 @@ public class MainActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Trova gli elementi della card
         textError = findViewById(R.id.textError);
         textLocation = findViewById(R.id.textLocation);
         textDescription = findViewById(R.id.textDescription);
@@ -89,16 +90,11 @@ public class MainActivity extends BaseActivity {
         iconWind = findViewById(R.id.iconWind);
         Button buttonGreenhouses = findViewById(R.id.buttonGreenhouses);
 
-        // Inizializza il client per ottenere la posizione
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        // Configura il LocationCallback per gli aggiornamenti continui
         configureLocationCallback();
-
-        // Avvia la verifica dei permessi
         checkPermissionsAndRequestUpdates();
 
-        // Gestione pulsanti
         ImageView ic_profile = findViewById(R.id.profileIcon);
         ic_profile.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
         buttonGreenhouses.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, GreenhousesActivity.class)));
@@ -113,7 +109,6 @@ public class MainActivity extends BaseActivity {
                 for (Location location : locationResult.getLocations()) {
                     double latitude = location.getLatitude();
                     double longitude = location.getLongitude();
-                    Log.d("Location", "Lat: " + latitude + ", Lon: " + longitude);
                     fetchWeatherData(latitude, longitude); // Recupera i dati meteo con le coordinate
                 }
             }
@@ -153,7 +148,6 @@ public class MainActivity extends BaseActivity {
                 Forecast forecast = forecastRepository.getForecastForLocation(latitude, longitude);
                 new Handler(Looper.getMainLooper()).post(() -> updateWeatherCard(forecast));
             } catch (Exception e) {
-                Log.e("Weather", "Error fetching weather data", e);
             }
         }).start();
     }
@@ -164,11 +158,11 @@ public class MainActivity extends BaseActivity {
         iconTemperature.setVisibility(View.VISIBLE);
         iconWind.setVisibility(View.VISIBLE);
         weatherIcon.setVisibility(View.VISIBLE);
-        textLocation.setText("Lat: " + forecast.getLatitude() + ", Lon: " + forecast.getLongitude());
+        textLocation.setText(String.format(Locale.getDefault(), "Lat: %s, Lon: %s", forecast.getLatitude(), forecast.getLongitude()));
         textDescription.setText(forecast.getForecastDescription());
-        textTemperature.setText(String.format("%.2f°C", forecast.getTemperature()));
-        textHumidity.setText(forecast.getHumidity() + "%");
-        textWind.setText(String.format("%.2f km/h", forecast.getWindSpeed() * 3.6));
+        textTemperature.setText(String.format(Locale.getDefault(), "%.2f°C", forecast.getTemperature()));
+        textHumidity.setText(String.format(Locale.getDefault(),"%d%%", forecast.getHumidity()));
+        textWind.setText(String.format(Locale.getDefault(), "%.2f km/h", forecast.getWindSpeed() * 3.6));
 
         Picasso.get().load(Uri.parse(forecastRepository.getIconURL(forecast))).error(R.drawable.ic_launcher_foreground).into(weatherIcon);
     }
@@ -184,7 +178,7 @@ public class MainActivity extends BaseActivity {
         textTemperature.setText("");
         textHumidity.setText("");
         textWind.setText("");
-        Toast.makeText(this, "Unable to get location. Please enable GPS.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_LONG).show();
     }
 
     @Override
