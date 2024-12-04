@@ -37,11 +37,7 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         String greenhouseName1 = getIntent().getStringExtra("greenhouse_name");
-        if (greenhouseName1 != null) {
-            getSupportActionBar().setTitle(greenhouseName1);
-        } else {
-            getSupportActionBar().setTitle(getString(R.string.greenhouseDetails_activityTitle));
-        }
+        getSupportActionBar().setTitle(Objects.requireNonNullElseGet(greenhouseName1, () -> getString(R.string.greenhouseDetails_activityTitle)));
 
         ImageView delIcon = findViewById(R.id.delIcon);
         delIcon.setOnClickListener(v -> showDisconnectDialog());
@@ -180,15 +176,13 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.disconnectedGreenhouse_dialogTitle))
                 .setMessage(getString(R.string.deleteGreenhouse_dialogText))
-                .setPositiveButton(getString(R.string.confirm_buttonText), (dialogInterface, which) -> {
-                    disconnectDevice();
-                })
+                .setPositiveButton(getString(R.string.confirm_buttonText), (dialogInterface, which) -> disconnectDevice())
                 .setNegativeButton(getString(R.string.cancel_buttonText), null)
                 .create();
 
         dialog.setOnShowListener(dialogInterface -> {
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.black));
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.black));
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.black, null));
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.black, null));
         });
 
         dialog.show();

@@ -52,14 +52,20 @@ public class ProfileActivity extends BaseActivity {
         getSupportActionBar().setTitle(getString(R.string.profile_activityTitle));
 
         Button buttonResetPassword = findViewById(R.id.buttonResetPassword);
-        buttonResetPassword.setOnClickListener(v -> mAuth.sendPasswordResetEmail(Objects.requireNonNull(currentUser.getEmail()))
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(ProfileActivity.this, getString(R.string.resetPasswordSuccess_toastText), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(ProfileActivity.this, getString(R.string.resetPasswordFailed_toastText), Toast.LENGTH_SHORT).show();
-                    }
-                }));
+        buttonResetPassword.setOnClickListener(v -> {
+            if(currentUser == null) {
+                Toast.makeText(ProfileActivity.this, getString(R.string.resetPasswordFailed_toastText), Toast.LENGTH_SHORT).show();
+                return;
+            }
+            mAuth.sendPasswordResetEmail(Objects.requireNonNull(currentUser.getEmail()))
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(ProfileActivity.this, getString(R.string.resetPasswordSuccess_toastText), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ProfileActivity.this, getString(R.string.resetPasswordFailed_toastText), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        });
 
         ImageView buttonAddDevice = findViewById(R.id.buttonAddDevice);
         buttonAddDevice.setOnClickListener(v -> showAddGreenhouseDialog());
@@ -217,8 +223,8 @@ public class ProfileActivity extends BaseActivity {
         dialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel_buttonText), (dialogInterface, which) -> dialog.dismiss());
 
         dialog.setOnShowListener(dialogInterface -> {
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.black));
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.black));
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.black, null));
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.black, null));
         });
 
         dialog.show();

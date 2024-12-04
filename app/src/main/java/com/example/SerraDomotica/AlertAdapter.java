@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.AlertViewHolder> {
 
-    private List<String> alertList;
+    private final List<String> alertList;
 
     public AlertAdapter(List<String> alertList) {
         this.alertList = alertList;

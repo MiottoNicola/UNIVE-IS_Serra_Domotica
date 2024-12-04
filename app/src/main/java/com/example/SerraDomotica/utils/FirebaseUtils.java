@@ -29,7 +29,6 @@ public class FirebaseUtils {
             return;
         }
 
-        // Check if user profile exists in Firebase Database
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(currentUser.getUid());
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -1,15 +1,15 @@
 package com.example.SerraDomotica.forecast;
 
 public class Forecast {
-    private String forecastTitle;
-    private int forecastID;
-    private String forecastLatitude;
-    private String forecastLongitude;
-    private String forecastDescription;
-    private double temperature;
-    private int humidity;
-    private double windSpeed;
-    private String icon;
+    private final String forecastTitle;
+    private final int forecastID;
+    private final String forecastLatitude;
+    private final String forecastLongitude;
+    private final String forecastDescription;
+    private final double temperature;
+    private final int humidity;
+    private final double windSpeed;
+    private final String icon;
 
     public Forecast(String forecastTitle, int forecastID, String forecastLatitude, String forecastLongitude, String forecastDescription, String icon, double temperature, int humidity, double windSpeed) {
         this.forecastTitle = forecastTitle;

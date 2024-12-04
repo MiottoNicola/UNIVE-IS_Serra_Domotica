@@ -65,6 +65,10 @@ public class RegisterActivity extends BaseActivity {
                         if (task.isSuccessful()) {
                             // Registration success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+                            if(user == null) {
+                                Toast.makeText(RegisterActivity.this, getString(R.string.registerFailed_toastText), Toast.LENGTH_SHORT).show();
+                                return;
+                            }
                             DatabaseReference u = rootRef.child("users").child(user.getUid());
                             u.child("nome_cognome").setValue(nomeCognome);
                             u.child("email").setValue(email);

@@ -148,6 +148,7 @@ public class MainActivity extends BaseActivity {
                 Forecast forecast = forecastRepository.getForecastForLocation(latitude, longitude);
                 new Handler(Looper.getMainLooper()).post(() -> updateWeatherCard(forecast));
             } catch (Exception e) {
+                Toast.makeText(this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_LONG).show();
             }
         }).start();
     }
