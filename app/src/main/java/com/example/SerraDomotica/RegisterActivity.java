@@ -1,10 +1,13 @@
 package com.example.SerraDomotica;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -80,6 +83,26 @@ public class RegisterActivity extends BaseActivity {
                         }
                     });
         });
+
+        TextView termsConditions = findViewById(R.id.terms_conditions);
+        termsConditions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTermsConditionsDialog();
+            }
+        });
+
+    }
+
+    private void showTermsConditionsDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_terms_conditions);
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+
+        TextView closeButton = dialog.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
     }
 
     @Override
