@@ -142,11 +142,11 @@ public class MainActivity extends BaseActivity {
 
 
     private void fetchWeatherData(double latitude, double longitude) {
-        if(!isNetConnected) {
-            return;
-        }
         new Thread(() -> {
             try {
+                if(!isNetConnected) {
+                    return;
+                }
                 Forecast forecast = forecastRepository.getForecastForLocation(latitude, longitude);
                 new Handler(Looper.getMainLooper()).post(() -> updateWeatherCard(forecast));
             } catch (Exception e) {
@@ -167,7 +167,7 @@ public class MainActivity extends BaseActivity {
         textHumidity.setText(String.format(Locale.getDefault(),"%d%%", forecast.getHumidity()));
         textWind.setText(String.format(Locale.getDefault(), "%.2f km/h", forecast.getWindSpeed() * 3.6));
 
-        Picasso.get().load(Uri.parse(forecastRepository.getIconURL(forecast))).error(R.drawable.ic_launcher_foreground).into(weatherIcon);
+        Picasso.get().load(Uri.parse(forecastRepository.getIconURL(forecast))).error(R.mipmap.ic_launcher_round).into(weatherIcon);
     }
 
     private void showErrorState() {

@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
         android:padding="8dp"
         android:text="@string/noInternet_text"
         android:textColor="@color/black"
