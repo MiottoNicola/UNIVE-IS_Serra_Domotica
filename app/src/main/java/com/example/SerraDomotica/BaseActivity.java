@@ -25,6 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private ConnectionMonitor connectionMonitor;
     private OfflineDialog offlineDialog;
+    protected boolean isNetConnected = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,30 +35,39 @@ public abstract class BaseActivity extends AppCompatActivity {
         offlineDialog = new OfflineDialog(this);
 
         connectionMonitor = new ConnectionMonitor(this, isConnected -> {
-            if (isConnected) {
-                Log.d("InternetCheck", "Connection established");
-                if (offlineDialog.isShowing()) {
-                    offlineDialog.dismiss();
+            runOnUiThread(() -> {
+                if (isConnected) {
+                    Log.d("InternetCheck", "Connection established");
+                    if (offlineDialog.isShowing()) {
+                        isNetConnected = true;
+                        offlineDialog.dismiss();
+                    }
+                } else {
+                    Log.d("InternetCheck", "Connection lost");
+                    if (!offlineDialog.isShowing()) {
+                        isNetConnected = false;
+                        offlineDialog.show();
+                    }
                 }
-            } else {
-                Log.d("InternetCheck", "Connection lost");
-                if (!offlineDialog.isShowing()) {
-                    offlineDialog.show();
-                }
-            }
+            });
         });
+
+        if(!isNetConnected){
+            offlineDialog.show();
+            Log.d("InternetCheck", "Connection lost at start");
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        connectionMonitor.startMonitoring(); // Avvia il monitoraggio
+        connectionMonitor.startMonitoring();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        connectionMonitor.stopMonitoring(); // Interrompi il monitoraggio
+        connectionMonitor.stopMonitoring();
     }
 
     protected void addGreenhouse(String greenhouseId, Context context) {

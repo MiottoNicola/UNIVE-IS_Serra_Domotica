@@ -53,7 +53,6 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction() != null && intent.getAction().matches("android.location.PROVIDERS_CHANGED")) {
-                // Controlla lo stato del GPS
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     Log.d("GPS", "GPS enabled");
@@ -143,6 +142,9 @@ public class MainActivity extends BaseActivity {
 
 
     private void fetchWeatherData(double latitude, double longitude) {
+        if(!isNetConnected) {
+            return;
+        }
         new Thread(() -> {
             try {
                 Forecast forecast = forecastRepository.getForecastForLocation(latitude, longitude);
