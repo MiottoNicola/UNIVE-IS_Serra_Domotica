@@ -1,7 +1,10 @@
 package com.example.SerraDomotica;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,8 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class TemperatureChartActivity extends BaseActivity {
-
+public class HistoryChartActivity extends BaseActivity {
     private LineChart lineChartTemperature;
     private LineChart lineChartAirHumidity;
     private LineChart lineChartSoilHumidity;
@@ -32,13 +34,17 @@ public class TemperatureChartActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temperature_chart);
+        setContentView(R.layout.activity_history_chart);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle(getIntent().getStringExtra("greenhouseName") + " - "+getString(R.string.history_activityTitle));
+
+        ImageView legend = findViewById(R.id.toolbar_info);
+        legend.setOnClickListener(v -> showTermsConditionsDialog());
+
 
         lineChartTemperature = findViewById(R.id.lineChartTemperature);
         lineChartAirHumidity = findViewById(R.id.lineChartAirHumidity);
@@ -49,6 +55,17 @@ public class TemperatureChartActivity extends BaseActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("/devices/" + idDevice + "/history");
 
         fetchDataFromDatabase();
+    }
+
+    private void showTermsConditionsDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_history_legend);
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+
+        TextView closeButton = dialog.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
     }
 
     private void fetchDataFromDatabase() {
@@ -82,7 +99,7 @@ public class TemperatureChartActivity extends BaseActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(TemperatureChartActivity.this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HistoryChartActivity.this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -98,7 +115,7 @@ public class TemperatureChartActivity extends BaseActivity {
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setEnabled(false);
 
-        chart.invalidate(); // Refresh the chart
+        chart.invalidate();
     }
 
     @Override

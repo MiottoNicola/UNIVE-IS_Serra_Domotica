@@ -28,7 +28,7 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".GreenhouseDetailsActivity" />
         <activity android:name=".GreenhousesActivity" />
-        <activity android:name=".TemperatureChartActivity" />
+        <activity android:name=".HistoryChartActivity" />
         <activity android:name=".GreenhouseSettingsActivity" />
         <activity android:name=".AlertActivity" />
     </application>

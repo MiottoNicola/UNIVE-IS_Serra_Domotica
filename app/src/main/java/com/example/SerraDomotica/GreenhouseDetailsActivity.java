@@ -63,7 +63,7 @@ public class GreenhouseDetailsActivity extends BaseActivity {
 
         Button historyButton = findViewById(R.id.history_button);
         historyButton.setOnClickListener(v -> {
-            Intent intent = new Intent(GreenhouseDetailsActivity.this, TemperatureChartActivity.class);
+            Intent intent = new Intent(GreenhouseDetailsActivity.this, HistoryChartActivity.class);
             intent.putExtra("idDevice", greenhouseId);
             intent.putExtra("greenhouseName", greenhouseName);
             startActivity(intent);

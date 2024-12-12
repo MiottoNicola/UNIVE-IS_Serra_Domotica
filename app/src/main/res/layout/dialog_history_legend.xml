@@ -13,7 +13,7 @@
             android:id="@+id/terms_conditions_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/terms_conditions_title"
+            android:text="@string/infoHistoryChart_dialogTitle"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_alignParentStart="true"
@@ -32,7 +32,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
         android:layout_below="@id/title_container">
@@ -40,9 +40,8 @@
         <TextView
             android:id="@+id/terms_conditions_text"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/terms_conditions_full_text"
+            android:layout_height="wrap_content"
+            android:text="@string/infoHistoryChart_dialogText"
             android:scrollbars="vertical" />
     </LinearLayout>
 </RelativeLayout>

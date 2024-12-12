@@ -85,12 +85,7 @@ public class RegisterActivity extends BaseActivity {
         });
 
         TextView termsConditions = findViewById(R.id.terms_conditions);
-        termsConditions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTermsConditionsDialog();
-            }
-        });
+        termsConditions.setOnClickListener(v -> showTermsConditionsDialog());
 
     }
 
