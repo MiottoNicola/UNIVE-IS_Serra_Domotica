@@ -33,13 +33,18 @@ public class AlertActivity extends BaseActivity {
         setContentView(R.layout.activity_alert);
 
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
-        String greenhouseName = getIntent().getStringExtra("greenhouse_name");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle(greenhouseName + " - " + getString(R.string.alerts_activityTitle));
+        getGreenhouseName(greenhouseId, greenhouseName -> {
+            if (greenhouseName != null) {
+                getSupportActionBar().setTitle(greenhouseName + " - "+getString(R.string.alerts_activityTitle));
+            } else {
+                getSupportActionBar().setTitle(getString(R.string.greenhouseDetails_activityTitle));
+            }
+        });
 
         textViewNoAlerts = findViewById(R.id.text_view_no_alerts);
         RecyclerView recyclerView = findViewById(R.id.recycler_view_alerts);

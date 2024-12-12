@@ -36,9 +36,6 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        String greenhouseName1 = getIntent().getStringExtra("greenhouse_name");
-        getSupportActionBar().setTitle(Objects.requireNonNullElseGet(greenhouseName1, () -> getString(R.string.greenhouseDetails_activityTitle)));
-
         ImageView delIcon = findViewById(R.id.delIcon);
         delIcon.setOnClickListener(v -> showDisconnectDialog());
 
@@ -52,20 +49,25 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         switchWater = findViewById(R.id.switchWater);
 
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
-        String greenhouseName = getIntent().getStringExtra("greenhouse_name");
-        if (greenhouseId != null && greenhouseName != null) {
+        if (greenhouseId != null) {
+            getGreenhouseName(greenhouseId, greenhouseName -> {
+                if (greenhouseName != null) {
+                    getSupportActionBar().setTitle(greenhouseName);
+                } else {
+                    getSupportActionBar().setTitle(getString(R.string.greenhouseDetails_activityTitle));
+                }
+            });
             fetchGreenhouseDetails(greenhouseId);
             setupSwitchListeners(greenhouseId);
         } else {
             Toast.makeText(this, getString(R.string.failedLoadData_toastText), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhousesActivity.class);
+            new Intent(GreenhouseDetailsActivity.this, GreenhousesActivity.class);
         }
 
         Button historyButton = findViewById(R.id.history_button);
         historyButton.setOnClickListener(v -> {
             Intent intent = new Intent(GreenhouseDetailsActivity.this, HistoryChartActivity.class);
             intent.putExtra("idDevice", greenhouseId);
-            intent.putExtra("greenhouseName", greenhouseName);
             startActivity(intent);
         });
 
@@ -73,7 +75,6 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         settingsButton.setOnClickListener(v -> {
             Intent intent = new Intent(GreenhouseDetailsActivity.this, GreenhouseSettingsActivity.class);
             intent.putExtra("greenhouse_id", greenhouseId);
-            intent.putExtra("greenhouse_name", greenhouseName);
             startActivity(intent);
         });
 
@@ -81,7 +82,6 @@ public class GreenhouseDetailsActivity extends BaseActivity {
         alertButton.setOnClickListener(v -> {
             Intent intent = new Intent(GreenhouseDetailsActivity.this, AlertActivity.class);
             intent.putExtra("greenhouse_id", greenhouseId);
-            intent.putExtra("greenhouse_name", greenhouseName);
             startActivity(intent);
         });
     }

@@ -37,8 +37,13 @@ public class GreenhouseSettingsActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         String greenhouseId = getIntent().getStringExtra("greenhouse_id");
-        String greenhouseName = getIntent().getStringExtra("greenhouse_name");
-        getSupportActionBar().setTitle(greenhouseName + " - "+getString(R.string.settings_activityTitle));
+        getGreenhouseName(greenhouseId, greenhouseName -> {
+            if (greenhouseName != null) {
+                getSupportActionBar().setTitle(greenhouseName + " - "+getString(R.string.settings_activityTitle));
+            } else {
+                getSupportActionBar().setTitle(getString(R.string.greenhouseDetails_activityTitle));
+            }
+        });
 
         minAirTemp = findViewById(R.id.min_air_temperature);
         maxAirTemp = findViewById(R.id.max_air_temperature);
@@ -63,7 +68,11 @@ public class GreenhouseSettingsActivity extends BaseActivity {
         configRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("config");
 
         fetchDefaultValues();
-        textName.setText(greenhouseName);
+        getGreenhouseName(greenhouseId, greenhouseName -> {
+            if (greenhouseName != null) {
+                textName.setText(greenhouseName);
+            }
+        });
 
         findViewById(R.id.button_edit_air_temp).setOnClickListener(v -> enableEditing(minAirTemp, maxAirTemp, buttonSaveAirTemp));
         findViewById(R.id.button_edit_air_humidity).setOnClickListener(v -> enableEditing(minAirHumidity, maxAirHumidity, buttonSaveAirHumidity));

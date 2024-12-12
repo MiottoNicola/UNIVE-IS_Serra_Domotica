@@ -133,4 +133,25 @@ public abstract class BaseActivity extends AppCompatActivity {
         });
     }
 
+    public void getGreenhouseName(String greenhouseId, final GreenhouseNameCallback callback) {
+        DatabaseReference greenhouseRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("titolo");
+
+        greenhouseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String greenhouseName = dataSnapshot.getValue(String.class);
+                callback.onCallback(greenhouseName);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                callback.onCallback(null);
+            }
+        });
+    }
+
+    public interface GreenhouseNameCallback {
+        void onCallback(String greenhouseName);
+    }
+
 }

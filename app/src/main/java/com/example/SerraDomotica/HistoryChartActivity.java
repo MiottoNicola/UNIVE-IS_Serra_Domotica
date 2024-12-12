@@ -40,7 +40,7 @@ public class HistoryChartActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle(getIntent().getStringExtra("greenhouseName") + " - "+getString(R.string.history_activityTitle));
+        String idDevice = getIntent().getStringExtra("idDevice");
 
         ImageView legend = findViewById(R.id.toolbar_info);
         legend.setOnClickListener(v -> showTermsConditionsDialog());
@@ -51,9 +51,14 @@ public class HistoryChartActivity extends BaseActivity {
         lineChartSoilHumidity = findViewById(R.id.lineChartSoilHumidity);
         lineChartLuminosity = findViewById(R.id.lineChartLuminosity);
 
-        String idDevice = getIntent().getStringExtra("idDevice");
         databaseReference = FirebaseDatabase.getInstance().getReference("/devices/" + idDevice + "/history");
-
+        getGreenhouseName(idDevice, greenhouseName -> {
+            if (greenhouseName != null) {
+                getSupportActionBar().setTitle(greenhouseName + " - "+getString(R.string.history_activityTitle));
+            } else {
+                getSupportActionBar().setTitle(getString(R.string.greenhouseDetails_activityTitle));
+            }
+        });
         fetchDataFromDatabase();
     }
 
