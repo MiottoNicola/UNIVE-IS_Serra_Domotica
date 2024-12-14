@@ -1,1 +1,77 @@
+##### Ingegneria del Software 2023/2024 - Università Ca' Foscari Venezia
 
+# Informazioni gruppo
+**Nome:** CaligGroup
+
+**Capo-gruppo:**  
+- Michele Bertoldo - 890571@stud.unive.it
+
+**Membri:**      
+- Bordignon Giacomo - 897270@stud.unive.it
+- Miotto Nicola - 895216@stud.unive.it
+- Titotto Paolo - 895227@stud.unive.it
+
+# Informazioni progetto
+**Nome APP:** Your Greenhouses
+
+**Versione:** 1.0
+
+
+### Descrizione:
+Un'applicazione Android che consente agli utenti di monitorare e gestire serre domotiche in tempo reale, integrando dati meteo e informazioni raccolte dai sensori.
+
+### Obiettivo:
+
+L'obiettivo principale è sviluppare un'app che permetta agli utenti di:
+- Visualizzare i dati raccolti dalle proprie serre (temperatura, umidità dell'aria, umidità del terreno, luminosità);
+- Agire sugli attuatori in maniera remota (luce ed irrigazione);
+- Integrare informazioni meteo in tempo reale basate sulla posizione GPS dell'utente.
+
+## Stato di Avanzamento
+### Funzionalità Completate:
+1. **Autenticazione Utente**:
+   - Implementata tramite Firebase Authentication (login, registrazione e ripristino password).
+2. **Gestione Dati Firebase**:
+   - Struttura del database progettata per salvare utenti, dispositivi e dati sensoriali.
+   - Associazione utente-dispositivo completata.
+3. **Dashboard Principale**:
+   - Visualizzazione dei dati meteo in tempo reale (integrazione API OpenWeather).
+   - Monitoraggio dei dati raccolti della serra.
+   - Azionare attuatori della serra.
+4. **Gestione degli errori**:
+   - Popup che segnalano eventuali errori all'utente.
+
+### Funzionalità Future:
+- **Applicazione multilingua**: L'applicazione verrà tradotta nelle lingue più comuni in uttto il mondo.
+- **Widget avanzati**: L'applicazione implementerà dei widget per monitorare la serra senza entrare nell'app.
+
+
+
+## Problemi Conosciuti
+- **Layout del Widget**: Potrebbe non adattarsi perfettamente su alcuni launcher. Soluzione: verifica la compatibilità con il launcher in uso.
+- **Blocco per Assenza di Connessione**: Se l'app si blocca in assenza di rete, si consiglia di riavviarla. Stiamo lavorando per rendere l'app più resiliente in condizioni di rete instabile.
+
+## Struttura del Progetto
+- **/app/src/main/java**:
+  - Codice sorgente suddiviso in package (es. `forecast`, `utils`, ecc.).
+- **/res/layout**:
+  - File XML per il design delle activity, delle finestre di dialogo.
+- **/res/values**:
+  - File di configurazione (colori, stringhe, stili, ecc.).
+- **/res/drawable**:
+    - Fie vettori utilizzati come immagini.
+- **res/mipmap**:
+    - File icone dell'app.
+- **README.md**:
+  - Questo file, che illustra lo stato di avanzamento.
+
+### Librerie/API implementate:
+- [Firebase](https://firebase.google.com/) per l'autenticazione e il database.
+- [Picasso](https://square.github.io/picasso/) per il caricamento delle immagini.
+- [MPAndroidChart.](https://github.com/PhilJay/MPAndroidChart) per la gestione dei grafici avanzata.
+- [OpenWeather](https://openweathermap.org/) per i dati meteo.
+
+
+# Note finali
+- L'applicazione assume che l'utente abbia già una propria serra installata, configurata e compatibile con la nostra app.
+- L'app, essendo sempre collegata ad internet, riochiede una onnessione stabile.
