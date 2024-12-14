@@ -1,0 +1,118 @@
+<resources>
+
+    <!-- activity_alerts.xml -->
+    <string name="noAlert_text">¡No hay alertas disponibles!</string>
+
+    <!-- user profile -->
+    <string name="fullName_text">"Nombre completo: "</string>
+    <string name="password_text">"Contraseña: "</string>
+    <string name="repeatPassword_text">"Repetir Contraseña: "</string>
+    <string name="email_text">"Correo electrónico: "</string>
+    <string name="reset_password">Restablecer Contraseña</string>
+    <string name="login_buttonText">Iniciar Sesión</string>
+    <string name="or_text">o</string>
+    <string name="register_buttonText">Registrarse</string>
+
+    <!-- iconDescription -->
+    <string name="profileIcon_imageDescription">Menú de Perfil</string>
+    <string name="deleteGreenhouse_imageDescription">Eliminar Invernadero</string>
+    <string name="temperatureIcon_imageDescription">Temperatura</string>
+    <string name="humidityIcon_imageDescription">Humedad del Aire</string>
+    <string name="soilHumidityIcon_imageDescription">Humedad del Suelo</string>
+    <string name="luminosityIcon_imageDescription">Luminosidad</string>
+    <string name="alertIcon_imageDescription">Alerta</string>
+    <string name="details_imageDescription">Detalles</string>
+    <string name="weatherIcon_imageDescription">Clima</string>
+    <string name="windIcon_imageDescription">Viento</string>
+    <string name="noInternet_imageDescription">¡Sin Conexión a Internet!</string>
+
+    <!-- textTitle -->
+    <string name="information_textTitle">Información</string>
+    <string name="temperature_textTitle">Temperatura</string>
+    <string name="humidity_textTitle">Humedad del Aire</string>
+    <string name="luminosity_textTitle">Luminosidad</string>
+    <string name="soilHumidity_textTitle">Humedad del Suelo</string>
+    <string name="irrigation_textTitle">Riego</string>
+    <string name="action_textTitle">Acción</string>
+    <string name="light_textTitle">Luz</string>
+    <string name="date_textTitle">Fecha</string>
+
+    <!-- activityText -->
+    <string name="alerts_activityTitle">Alertas</string>
+    <string name="history_activityTitle">Historial</string>
+    <string name="settings_activityTitle">Configuraciones</string>
+    <string name="login_activityTitle">Iniciar Sesión</string>
+    <string name="register_activityTitle">Registrarse</string>
+    <string name="profile_activityTitle">Perfil</string>
+    <string name="greenhouseDetails_activityTitle">Detalles del Invernadero</string>
+
+    <!-- text -->
+    <string name="editName_text">Nombre del Invernadero</string>
+    <string name="minAirTemperature_text">Temperatura Mínima</string>
+    <string name="maxAirTemperature_text">Temperatura Máxima</string>
+    <string name="minAirHumidity_text">Humedad del Aire Mínima</string>
+    <string name="maxAirHumidity_text">Humedad del Aire Máxima</string>
+    <string name="minSoilHumidity_text">Humedad del Suelo Mínima</string>
+    <string name="maxSoilHumidity_text">Humedad del Suelo Máxima</string>
+    <string name="minLuminosity_text">Luminosidad Mínima</string>
+    <string name="maxLuminosity_text">Luminosidad Máxima</string>
+    <string name="noGreenhousesFound_text">¡No se encontraron invernaderos!</string>
+    <string name="accountInformation_text">Información de la Cuenta</string>
+    <string name="connectedDevices_text">Invernaderos Conectados</string>
+    <string name="notAvailable_text">¡No disponible!</string>
+    <string name="weatherForecast_text">Pronóstico del Clima</string>
+    <string name="noInternet_text">¡Sin Conexión a Internet!</string>
+    <string name="weatherError_text">No se encontraron datos meteorológicos</string>
+    <string name="greenhouseID_textHint">ID del Invernadero</string>
+    <string name="lastData_text">Última Actualización: </string>
+    <string name="terms_conditions_title"><![CDATA[Allgemeine Geschäftsbedingungen]]></string>
+    <string name="terms_conditions_text">Allgemeine Geschäftsbedingungen anzeigen</string>
+    <string name="terms_conditions_full_text">Allgemeine Geschäftsbedingungen\n\n1. Einführung\nWillkommen in unserer Anwendung. Durch den Zugriff auf oder die Nutzung unserer App stimmen Sie diesen Allgemeinen Geschäftsbedingungen zu.\n\n2. Nutzung der App\nSie stimmen zu, die App nur für rechtmäßige Zwecke zu nutzen und in einer Weise, die die Rechte anderer nicht verletzt oder deren Nutzung und Genuss der App einschränkt.\n\n3. Datenschutz\nWir verpflichten uns, Ihre Privatsphäre zu schützen. Unsere Datenschutzrichtlinie erklärt, wie wir Informationen über Sie sammeln, verwenden und offenlegen.\n\n4. Geistiges Eigentum\nAlle Inhalte, Marken und Daten in dieser App, einschließlich, aber nicht beschränkt auf Software, Datenbanken, Texte, Grafiken, Symbole und Hyperlinks, sind unser Eigentum oder lizenziert und durch das Gesetz geschützt.\n\n5. Haftungsbeschränkung\nWir haften nicht für direkte, indirekte, zufällige oder Folgeschäden, die sich aus der Nutzung der App ergeben.\n\n6. Änderungen der Bedingungen\nWir behalten uns das Recht vor, diese Allgemeinen Geschäftsbedingungen jederzeit zu ändern. Ihre fortgesetzte Nutzung der App nach Änderungen bedeutet Ihre Zustimmung zu den neuen Bedingungen.\n\n7. Anwendbares Recht\nDiese Allgemeinen Geschäftsbedingungen unterliegen den Gesetzen Italiens und werden in Übereinstimmung mit diesen ausgelegt.\n\n8. Kontaktieren Sie uns\nWenn Sie Fragen zu diesen Allgemeinen Geschäftsbedingungen haben, kontaktieren Sie uns bitte.\n\nDurch die Nutzung unserer App erkennen Sie an, dass Sie diese Allgemeinen Geschäftsbedingungen gelesen, verstanden und akzeptiert haben.</string>
+
+    <!-- buttonText -->
+    <string name="startEditing_buttonText">Comenzar a Editar Configuraciones</string>
+    <string name="viewGreenhouses_buttonText">Ver Invernaderos</string>
+    <string name="save_buttonText">Guardar</string>
+    <string name="confirm_buttonText">Confirmar</string>
+    <string name="cancel_buttonText">Cancelar</string>
+
+    <!-- buttonDescription -->
+    <string name="addGreenhouse_buttonDescription">Agregar Invernadero</string>
+    <string name="deleteGreenhouse_buttonDescription">Eliminar Invernadero</string>
+    <string name="login_imageDescription">Iniciar Sesión</string>
+    <string name="logout_imageDescription">Cerrar Sesión</string>
+    <string name="addDevice_imageDescription">Agregar Invernaderos</string>
+
+    <!-- toastText -->
+    <string name="IDNotFound_toastText">¡Invernadero no encontrado!</string>
+    <string name="failedLoadData_toastText">¡Error al cargar los datos!</string>
+    <string name="failedSaveData_toastText">¡Error al guardar los datos!</string>
+    <string name="saveData_toastText">¡Datos guardados!</string>
+    <string name="notValidData_toastText">¡Datos no válidos!</string>
+    <string name="failedDeleteData_toastText">¡Error al eliminar los datos!</string>
+    <string name="emailEmpty_toastText">¡El correo electrónico está vacío!</string>
+    <string name="passwordEmpty_toastText">¡La contraseña está vacía!</string>
+    <string name="resetPasswordSuccess_toastText">¡Correo de restablecimiento de contraseña enviado!</string>
+    <string name="resetPasswordFailed_toastText">¡Error al enviar el correo de restablecimiento de contraseña!</string>
+    <string name="registerSuccess_toastText">¡Registrado con éxito!</string>
+    <string name="registerFailed_toastText">¡Error al registrarse!</string>
+    <string name="emptyField_toastText">¡Campo vacío!</string>
+    <string name="passwordNotMatch_toastText">¡Las contraseñas no coinciden!</string>
+    <string name="failedLogin_toastText">¡Error al iniciar sesión!</string>
+    <string name="loginSuccess_toastText">¡Inicio de sesión exitoso!</string>
+    <string name="logoutSuccess_toastText">¡Cierre de sesión exitoso!</string>
+    <string name="devideDisconnected_toastText">¡Invernadero desconectado!</string>
+    <string name="failedDevideDisconnected_toastText">¡Error al desconectar el invernadero!</string>
+    <string name="notAuthenticatedUser_toastText">¡Usuario no autenticado!</string>
+    <string name="greenhouseAlredyConnected_toastText">¡Invernadero ya conectado!</string>
+    <string name="succConnectGreenhouse_toastText">¡Invernadero conectado!</string>
+    <string name="failedConnectGreenhouse_toastText">¡Error al conectar el invernadero!</string>
+
+    <!-- dialogText -->
+    <string name="deleteGreenhouse_dialogText">¿Está seguro de que desea desconectar este invernadero?</string>
+    <string name="disconnectedGreenhouse_dialogTitle">Invernadero Desconectado</string>
+    <string name="info">Leyenda</string>
+    <string name="infoHistoryChart_dialogText">Los siguientes gráficos expresan la información recopilada del invernadero a lo largo del tiempo. \nCuanto más activo esté el invernadero, más datos se recopilan y, en consecuencia, más detallados son los gráficos.\n\nPara interpretar correctamente el gráfico, la unidad de medida relacionada con la información específica (°C o %) debe colocarse en el eje de ordenadas, mientras que la línea de tiempo debe colocarse en el eje de abscisas.</string>
+    <string name="infoHistoryChart_dialogTitle">Información sobre el gráfico histórico</string>
+
+</resources>

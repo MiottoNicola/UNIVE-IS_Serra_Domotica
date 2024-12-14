@@ -1,0 +1,118 @@
+<resources>
+
+    <!-- activity_alerts.xml -->
+    <string name="noAlert_text">Aucune alerte disponible!</string>
+
+    <!-- user profile -->
+    <string name="fullName_text">"Nom complet: "</string>
+    <string name="password_text">"Mot de passe: "</string>
+    <string name="repeatPassword_text">"Répéter le mot de passe: "</string>
+    <string name="email_text">"Email: "</string>
+    <string name="reset_password">Réinitialiser le mot de passe</string>
+    <string name="login_buttonText">Connexion</string>
+    <string name="or_text">ou</string>
+    <string name="register_buttonText">S\'inscrire</string>
+
+    <!-- iconDescription -->
+    <string name="profileIcon_imageDescription">Menu Profil</string>
+    <string name="deleteGreenhouse_imageDescription">Supprimer la serre</string>
+    <string name="temperatureIcon_imageDescription">Température</string>
+    <string name="humidityIcon_imageDescription">Humidité de l\'air</string>
+    <string name="soilHumidityIcon_imageDescription">Humidité du sol</string>
+    <string name="luminosityIcon_imageDescription">Luminosité</string>
+    <string name="alertIcon_imageDescription">Alerte</string>
+    <string name="details_imageDescription">Détails</string>
+    <string name="weatherIcon_imageDescription">Météo</string>
+    <string name="windIcon_imageDescription">Vent</string>
+    <string name="noInternet_imageDescription">Pas de connexion Internet!</string>
+
+    <!-- textTitle -->
+    <string name="information_textTitle">Informations</string>
+    <string name="temperature_textTitle">Température</string>
+    <string name="humidity_textTitle">Humidité de l\'air</string>
+    <string name="luminosity_textTitle">Luminosité</string>
+    <string name="soilHumidity_textTitle">Humidité du sol</string>
+    <string name="irrigation_textTitle">Irrigation</string>
+    <string name="action_textTitle">Action</string>
+    <string name="light_textTitle">Lumière</string>
+    <string name="date_textTitle">Date</string>
+
+    <!-- activityText -->
+    <string name="alerts_activityTitle">Alertes</string>
+    <string name="history_activityTitle">Historique</string>
+    <string name="settings_activityTitle">Paramètres</string>
+    <string name="login_activityTitle">Connexion</string>
+    <string name="register_activityTitle">Inscription</string>
+    <string name="profile_activityTitle">Profil</string>
+    <string name="greenhouseDetails_activityTitle">Détails de la serre</string>
+
+    <!-- text -->
+    <string name="editName_text">Nom de la serre</string>
+    <string name="minAirTemperature_text">Température Min</string>
+    <string name="maxAirTemperature_text">Température Max</string>
+    <string name="minAirHumidity_text">Humidité de l\'air Min</string>
+    <string name="maxAirHumidity_text">Humidité de l\'air Max</string>
+    <string name="minSoilHumidity_text">Humidité du sol Min</string>
+    <string name="maxSoilHumidity_text">Humidité du sol Max</string>
+    <string name="minLuminosity_text">Luminosité Min</string>
+    <string name="maxLuminosity_text">Luminosité Max</string>
+    <string name="noGreenhousesFound_text">Aucune serre trouvée!</string>
+    <string name="accountInformation_text">Informations du compte</string>
+    <string name="connectedDevices_text">Serres connectées</string>
+    <string name="notAvailable_text">Non disponible!</string>
+    <string name="weatherForecast_text">Prévisions météorologiques</string>
+    <string name="noInternet_text">Pas de connexion Internet!</string>
+    <string name="weatherError_text">Aucune donnée météorologique trouvée</string>
+    <string name="greenhouseID_textHint">ID de la serre</string>
+    <string name="lastData_text">Dernière mise à jour: </string>
+    <string name="terms_conditions_title"><![CDATA[Términos y Condiciones]]></string>
+    <string name="terms_conditions_text">Voir les Termes et Conditions</string>
+    <string name="terms_conditions_full_text">Termes et Conditions\n\n1. Introduction\nBienvenue dans notre application. En accédant ou en utilisant notre application, vous acceptez d\'être lié par ces termes et conditions.\n\n2. Utilisation de l\'App\nVous acceptez d\'utiliser l\'application uniquement à des fins légales et de manière à ne pas enfreindre les droits des autres ou restreindre leur utilisation et leur jouissance de l\'application.\n\n3. Confidentialité\nNous nous engageons à protéger votre vie privée. Notre politique de confidentialité explique comment nous collectons, utilisons et divulguons des informations vous concernant.\n\n4. Propriété Intellectuelle\nTout le contenu, les marques et les données de cette application, y compris mais sans s\'y limiter les logiciels, bases de données, textes, graphiques, icônes et hyperliens, sont notre propriété ou sous licence et sont protégés par la loi.\n\n5. Limitation de Responsabilité\nNous ne sommes pas responsables des dommages directs, indirects, accidentels ou consécutifs résultant de votre utilisation de l\'application.\n\n6. Modifications des Termes\nNous nous réservons le droit de modifier ces termes et conditions à tout moment. Votre utilisation continue de l\'application après toute modification signifie votre acceptation des nouveaux termes.\n\n7. Droit Applicable\nCes termes et conditions sont régis et interprétés conformément aux lois de Italia.\n\n8. Contactez-nous\nSi vous avez des questions concernant ces termes et conditions, veuillez nous contacter.\n\nEn utilisant notre application, vous reconnaissez avoir lu, compris et accepté d\'être lié par ces termes et conditions.</string>
+
+    <!-- buttonText -->
+    <string name="startEditing_buttonText">Commencer à modifier les paramètres</string>
+    <string name="viewGreenhouses_buttonText">Voir les serres</string>
+    <string name="save_buttonText">Enregistrer</string>
+    <string name="confirm_buttonText">Confirmer</string>
+    <string name="cancel_buttonText">Annuler</string>
+
+    <!-- buttonDescription -->
+    <string name="addGreenhouse_buttonDescription">Ajouter une serre</string>
+    <string name="deleteGreenhouse_buttonDescription">Supprimer la serre</string>
+    <string name="login_imageDescription">Connexion</string>
+    <string name="logout_imageDescription">Déconnexion</string>
+    <string name="addDevice_imageDescription">Ajouter des serres</string>
+
+    <!-- toastText -->
+    <string name="IDNotFound_toastText">Serre non trouvée!</string>
+    <string name="failedLoadData_toastText">Échec du chargement des données!</string>
+    <string name="failedSaveData_toastText">Échec de l\'enregistrement des données!</string>
+    <string name="saveData_toastText">Données enregistrées!</string>
+    <string name="notValidData_toastText">Données non valides!</string>
+    <string name="failedDeleteData_toastText">Échec de la suppression des données!</string>
+    <string name="emailEmpty_toastText">Email est vide!</string>
+    <string name="passwordEmpty_toastText">Le mot de passe est vide!</string>
+    <string name="resetPasswordSuccess_toastText">Email de réinitialisation du mot de passe envoyé!</string>
+    <string name="resetPasswordFailed_toastText">Échec de l\'envoi de l\'email de réinitialisation du mot de passe!</string>
+    <string name="registerSuccess_toastText">Inscription réussie!</string>
+    <string name="registerFailed_toastText">Échec de l\'inscription!</string>
+    <string name="emptyField_toastText">Champ vide!</string>
+    <string name="passwordNotMatch_toastText">Les mots de passe ne correspondent pas!</string>
+    <string name="failedLogin_toastText">Échec de la connexion!</string>
+    <string name="loginSuccess_toastText">Connexion réussie!</string>
+    <string name="logoutSuccess_toastText">Déconnexion réussie!</string>
+    <string name="devideDisconnected_toastText">Serre déconnectée!</string>
+    <string name="failedDevideDisconnected_toastText">Échec de la déconnexion de la serre!</string>
+    <string name="notAuthenticatedUser_toastText">Utilisateur non authentifié!</string>
+    <string name="greenhouseAlredyConnected_toastText">Serre déjà connectée!</string>
+    <string name="succConnectGreenhouse_toastText">Serre connectée!</string>
+    <string name="failedConnectGreenhouse_toastText">Échec de la connexion de la serre!</string>
+
+    <!-- dialogText -->
+    <string name="deleteGreenhouse_dialogText">Êtes-vous sûr de vouloir déconnecter cette serre?</string>
+    <string name="disconnectedGreenhouse_dialogTitle">Serre déconnectée</string>
+    <string name="info">Légende</string>
+    <string name="infoHistoryChart_dialogText">Les graphiques suivants expriment les informations collectées de la serre au fil du temps. \nPlus la serre est active, plus les données sont collectées et, par conséquent, plus les graphiques sont détaillés.\n\nPour interpréter correctement le graphique, l\'unité de mesure liée à l\'information spécifique (°C ou %) doit être placée sur l\'axe des ordonnées, tandis que la chronologie doit être placée sur l\'axe des abscisses.</string>
+    <string name="infoHistoryChart_dialogTitle">Informations sur le graphique historique</string>
+
+</resources>

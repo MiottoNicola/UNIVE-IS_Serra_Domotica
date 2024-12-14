@@ -1,0 +1,116 @@
+<resources>
+
+    <!-- activity_alerts.xml -->
+    <string name="noAlert_text">Keine Warnungen verfügbar!</string>
+
+    <!-- user profile -->
+    <string name="fullName_text">"Vollständiger Name: "</string>
+    <string name="password_text">"Passwort: "</string>
+    <string name="repeatPassword_text">"Passwort wiederholen: "</string>
+    <string name="email_text">"E-Mail: "</string>
+    <string name="reset_password">Passwort zurücksetzen</string>
+    <string name="login_buttonText">Anmelden</string>
+    <string name="or_text">oder</string>
+    <string name="register_buttonText">Registrieren</string>
+
+    <!-- iconDescription -->
+    <string name="profileIcon_imageDescription">Profilmenü</string>
+    <string name="deleteGreenhouse_imageDescription">Gewächshaus löschen</string>
+    <string name="temperatureIcon_imageDescription">Temperatur</string>
+    <string name="humidityIcon_imageDescription">Luftfeuchtigkeit</string>
+    <string name="soilHumidityIcon_imageDescription">Bodenfeuchtigkeit</string>
+    <string name="luminosityIcon_imageDescription">Helligkeit</string>
+    <string name="alertIcon_imageDescription">Warnung</string>
+    <string name="details_imageDescription">Details</string>
+    <string name="weatherIcon_imageDescription">Wetter</string>
+    <string name="windIcon_imageDescription">Wind</string>
+    <string name="noInternet_imageDescription">Keine Internetverbindung!</string>
+
+    <!-- textTitle -->
+    <string name="information_textTitle">Informationen</string>
+    <string name="temperature_textTitle">Temperatur</string>
+    <string name="humidity_textTitle">Luftfeuchtigkeit</string>
+    <string name="luminosity_textTitle">Helligkeit</string>
+    <string name="soilHumidity_textTitle">Bodenfeuchtigkeit</string>
+    <string name="irrigation_textTitle">Bewässerung</string>
+    <string name="action_textTitle">Aktion</string>
+    <string name="light_textTitle">Licht</string>
+    <string name="date_textTitle">Datum</string>
+
+    <!-- activityText -->
+    <string name="alerts_activityTitle">Warnungen</string>
+    <string name="history_activityTitle">Verlauf</string>
+    <string name="settings_activityTitle">Einstellungen</string>
+    <string name="login_activityTitle">Anmelden</string>
+    <string name="register_activityTitle">Registrieren</string>
+    <string name="profile_activityTitle">Profil</string>
+    <string name="greenhouseDetails_activityTitle">Gewächshausdetails</string>
+
+    <!-- text -->
+    <string name="editName_text">Name des Gewächshauses</string>
+    <string name="minAirTemperature_text">Min Temperatur</string>
+    <string name="maxAirTemperature_text">Max Temperatur</string>
+    <string name="minAirHumidity_text">Min Luftfeuchtigkeit</string>
+    <string name="maxAirHumidity_text">Max Luftfeuchtigkeit</string>
+    <string name="minSoilHumidity_text">Min Bodenfeuchtigkeit</string>
+    <string name="maxSoilHumidity_text">Max Bodenfeuchtigkeit</string>
+    <string name="minLuminosity_text">Min Helligkeit</string>
+    <string name="maxLuminosity_text">Max Helligkeit</string>
+    <string name="noGreenhousesFound_text">Keine Gewächshäuser gefunden!</string>
+    <string name="accountInformation_text">Kontoinformationen</string>
+    <string name="connectedDevices_text">Verbundene Gewächshäuser</string>
+    <string name="notAvailable_text">Nicht verfügbar!</string>
+    <string name="weatherForecast_text">Wettervorhersage</string>
+    <string name="noInternet_text">Keine Internetverbindung!</string>
+    <string name="weatherError_text">Keine Wetterdaten gefunden</string>
+    <string name="greenhouseID_textHint">Gewächshaus-ID</string>
+    <string name="lastData_text">Letzte Aktualisierung: </string>
+    <string name="terms_conditions_title"><![CDATA[Allgemeine Geschäftsbedingungen]]></string>
+    <string name="terms_conditions_text">Allgemeine Geschäftsbedingungen anzeigen</string>
+    <string name="terms_conditions_full_text">Allgemeine Geschäftsbedingungen\n\n1. Einführung\nWillkommen in unserer Anwendung. Durch den Zugriff auf oder die Nutzung unserer App stimmen Sie zu, an diese Allgemeinen Geschäftsbedingungen gebunden zu sein.\n\n2. Nutzung der App\nSie stimmen zu, die App nur für rechtmäßige Zwecke zu nutzen und in einer Weise, die die Rechte anderer nicht verletzt oder deren Nutzung und Genuss der App einschränkt.\n\n3. Datenschutz\nWir verpflichten uns, Ihre Privatsphäre zu schützen. Unsere Datenschutzrichtlinie erklärt, wie wir Informationen über Sie sammeln, verwenden und offenlegen.\n\n4. Geistiges Eigentum\nAlle Inhalte, Marken und Daten in dieser App, einschließlich, aber nicht beschränkt auf Software, Datenbanken, Texte, Grafiken, Symbole und Hyperlinks, sind unser Eigentum oder lizenziert und gesetzlich geschützt.\n\n5. Haftungsbeschränkung\nWir haften nicht für direkte, indirekte, zufällige oder Folgeschäden, die sich aus Ihrer Nutzung der App ergeben.\n\n6. Änderungen der Bedingungen\nWir behalten uns das Recht vor, diese Allgemeinen Geschäftsbedingungen jederzeit zu ändern. Ihre fortgesetzte Nutzung der App nach Änderungen bedeutet Ihre Zustimmung zu den neuen Bedingungen.\n\n7. Anwendbares Recht\nDiese Allgemeinen Geschäftsbedingungen unterliegen den Gesetzen von Italien und werden in Übereinstimmung mit diesen ausgelegt.\n\n8. Kontaktieren Sie uns\nWenn Sie Fragen zu diesen Allgemeinen Geschäftsbedingungen haben, kontaktieren Sie uns bitte.\n\nDurch die Nutzung unserer App erkennen Sie an, dass Sie diese Allgemeinen Geschäftsbedingungen gelesen, verstanden und akzeptiert haben.</string>    <!-- buttonText -->
+    <string name="startEditing_buttonText">Einstellungen bearbeiten</string>
+    <string name="viewGreenhouses_buttonText">Gewächshäuser anzeigen</string>
+    <string name="save_buttonText">Speichern</string>
+    <string name="confirm_buttonText">Bestätigen</string>
+    <string name="cancel_buttonText">Abbrechen</string>
+
+    <!-- buttonDescription -->
+    <string name="addGreenhouse_buttonDescription">Gewächshaus hinzufügen</string>
+    <string name="deleteGreenhouse_buttonDescription">Gewächshaus löschen</string>
+    <string name="login_imageDescription">Anmelden</string>
+    <string name="logout_imageDescription">Abmelden</string>
+    <string name="addDevice_imageDescription">Gewächshäuser hinzufügen</string>
+
+    <!-- toastText -->
+    <string name="IDNotFound_toastText">Gewächshaus nicht gefunden!</string>
+    <string name="failedLoadData_toastText">Daten konnten nicht geladen werden!</string>
+    <string name="failedSaveData_toastText">Daten konnten nicht gespeichert werden!</string>
+    <string name="saveData_toastText">Daten gespeichert!</string>
+    <string name="notValidData_toastText">Ungültige Daten!</string>
+    <string name="failedDeleteData_toastText">Daten konnten nicht gelöscht werden!</string>
+    <string name="emailEmpty_toastText">E-Mail ist leer!</string>
+    <string name="passwordEmpty_toastText">Passwort ist leer!</string>
+    <string name="resetPasswordSuccess_toastText">Passwort-Reset-E-Mail gesendet!</string>
+    <string name="resetPasswordFailed_toastText">Passwort-Reset-E-Mail konnte nicht gesendet werden!</string>
+    <string name="registerSuccess_toastText">Erfolgreich registriert!</string>
+    <string name="registerFailed_toastText">Registrierung fehlgeschlagen!</string>
+    <string name="emptyField_toastText">Leeres Feld!</string>
+    <string name="passwordNotMatch_toastText">Passwörter stimmen nicht überein!</string>
+    <string name="failedLogin_toastText">Anmeldung fehlgeschlagen!</string>
+    <string name="loginSuccess_toastText">Erfolgreich angemeldet!</string>
+    <string name="logoutSuccess_toastText">Erfolgreich abgemeldet!</string>
+    <string name="devideDisconnected_toastText">Gewächshaus getrennt!</string>
+    <string name="failedDevideDisconnected_toastText">Gewächshaus konnte nicht getrennt werden!</string>
+    <string name="notAuthenticatedUser_toastText">Benutzer nicht authentifiziert!</string>
+    <string name="greenhouseAlredyConnected_toastText">Gewächshaus bereits verbunden!</string>
+    <string name="succConnectGreenhouse_toastText">Gewächshaus verbunden!</string>
+    <string name="failedConnectGreenhouse_toastText">Gewächshaus konnte nicht verbunden werden!</string>
+
+    <!-- dialogText -->
+    <string name="deleteGreenhouse_dialogText">Sind Sie sicher, dass Sie dieses Gewächshaus trennen möchten?</string>
+    <string name="disconnectedGreenhouse_dialogTitle">Gewächshaus getrennt</string>
+    <string name="info">Legende</string>
+    <string name="infoHistoryChart_dialogText">Die folgenden Diagramme zeigen die im Laufe der Zeit gesammelten Informationen aus dem Gewächshaus. \nJe aktiver das Gewächshaus ist, desto mehr Daten werden gesammelt und desto detaillierter sind die Diagramme.\n\nUm das Diagramm korrekt zu interpretieren, sollte die Maßeinheit, die sich auf die spezifische Information bezieht (°C oder %), auf der Ordinate und die Zeitleiste auf der Abszisse platziert werden.</string>
+    <string name="infoHistoryChart_dialogTitle">Informationen über das Verlaufdiagramm</string>
+
+</resources>

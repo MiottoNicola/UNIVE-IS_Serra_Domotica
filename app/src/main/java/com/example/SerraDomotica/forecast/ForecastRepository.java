@@ -15,7 +15,28 @@ import java.util.Locale;
 public class ForecastRepository {
 
     public Forecast getForecastForLocation(double latitude, double longitude) throws Exception {
-        String language = "en";
+        String language = Locale.getDefault().getLanguage();
+
+        switch (language) {
+            case "it":
+                language = "it";
+                break;
+            case "es":
+                language = "es";
+                break;
+            case "fr":
+                language = "fr";
+                break;
+            case "de":
+                language = "de";
+                break;
+            case "pt":
+                language = "pt";
+                break;
+            default:
+                language = "en";
+                break;
+        }
 
         String apiKey = "478eff817c63c52301446cb3dbc57a50";
         String urlString = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey + "&units=metric&lang=" + language;

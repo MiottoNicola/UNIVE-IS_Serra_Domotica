@@ -1,0 +1,118 @@
+<resources>
+
+    <!-- activity_alerts.xml -->
+    <string name="noAlert_text">Nenhum alerta disponível!</string>
+
+    <!-- user profile -->
+    <string name="fullName_text">"Nome completo: "</string>
+    <string name="password_text">"Senha: "</string>
+    <string name="repeatPassword_text">"Repetir senha: "</string>
+    <string name="email_text">"Email: "</string>
+    <string name="reset_password">Redefinir senha</string>
+    <string name="login_buttonText">Entrar</string>
+    <string name="or_text">ou</string>
+    <string name="register_buttonText">Registrar</string>
+
+    <!-- iconDescription -->
+    <string name="profileIcon_imageDescription">Menu de perfil</string>
+    <string name="deleteGreenhouse_imageDescription">Excluir estufa</string>
+    <string name="temperatureIcon_imageDescription">Temperatura</string>
+    <string name="humidityIcon_imageDescription">Umidade do ar</string>
+    <string name="soilHumidityIcon_imageDescription">Umidade do solo</string>
+    <string name="luminosityIcon_imageDescription">Luminosidade</string>
+    <string name="alertIcon_imageDescription">Alerta</string>
+    <string name="details_imageDescription">Detalhes</string>
+    <string name="weatherIcon_imageDescription">Clima</string>
+    <string name="windIcon_imageDescription">Vento</string>
+    <string name="noInternet_imageDescription">Sem conexão com a Internet!</string>
+
+    <!-- textTitle -->
+    <string name="information_textTitle">Informações</string>
+    <string name="temperature_textTitle">Temperatura</string>
+    <string name="humidity_textTitle">Umidade do ar</string>
+    <string name="luminosity_textTitle">Luminosidade</string>
+    <string name="soilHumidity_textTitle">Umidade do solo</string>
+    <string name="irrigation_textTitle">Irrigação</string>
+    <string name="action_textTitle">Ação</string>
+    <string name="light_textTitle">Luz</string>
+    <string name="date_textTitle">Data</string>
+
+    <!-- activityText -->
+    <string name="alerts_activityTitle">Alertas</string>
+    <string name="history_activityTitle">Histórico</string>
+    <string name="settings_activityTitle">Configurações</string>
+    <string name="login_activityTitle">Entrar</string>
+    <string name="register_activityTitle">Registrar</string>
+    <string name="profile_activityTitle">Perfil</string>
+    <string name="greenhouseDetails_activityTitle">Detalhes da estufa</string>
+
+    <!-- text -->
+    <string name="editName_text">Nome da estufa</string>
+    <string name="minAirTemperature_text">Temperatura mínima</string>
+    <string name="maxAirTemperature_text">Temperatura máxima</string>
+    <string name="minAirHumidity_text">Umidade do ar mínima</string>
+    <string name="maxAirHumidity_text">Umidade do ar máxima</string>
+    <string name="minSoilHumidity_text">Umidade do solo mínima</string>
+    <string name="maxSoilHumidity_text">Umidade do solo máxima</string>
+    <string name="minLuminosity_text">Luminosidade mínima</string>
+    <string name="maxLuminosity_text">Luminosidade máxima</string>
+    <string name="noGreenhousesFound_text">Nenhuma estufa encontrada!</string>
+    <string name="accountInformation_text">Informações da conta</string>
+    <string name="connectedDevices_text">Estufas conectadas</string>
+    <string name="notAvailable_text">Não disponível!</string>
+    <string name="weatherForecast_text">Previsão do tempo</string>
+    <string name="noInternet_text">Sem conexão com a Internet!</string>
+    <string name="weatherError_text">Nenhum dado meteorológico encontrado</string>
+    <string name="greenhouseID_textHint">ID da estufa</string>
+    <string name="lastData_text">Última atualização: </string>
+    <string name="terms_conditions_title"><![CDATA[Termos e Condições]]></string>
+    <string name="terms_conditions_text">Ver Termos e Condições</string>
+    <string name="terms_conditions_full_text">Termos e Condições\n\n1. Introdução\nBem-vindo ao nosso aplicativo. Ao acessar ou usar nosso aplicativo, você concorda em estar vinculado a estes termos e condições.\n\n2. Uso do Aplicativo\nVocê concorda em usar o aplicativo apenas para fins legais e de maneira que não infrinja os direitos de outros ou restrinja seu uso e aproveitamento do aplicativo.\n\n3. Privacidade\nEstamos comprometidos em proteger sua privacidade. Nossa política de privacidade explica como coletamos, usamos e divulgamos informações sobre você.\n\n4. Propriedade Intelectual\nTodo o conteúdo, marcas e dados neste aplicativo, incluindo, mas não se limitando a software, bancos de dados, textos, gráficos, ícones e hyperlinks, são de nossa propriedade ou licenciados e são protegidos por lei.\n\n5. Limitação de Responsabilidade\nNão somos responsáveis por quaisquer danos diretos, indiretos, incidentais ou consequenciais decorrentes do uso do aplicativo.\n\n6. Alterações nos Termos\nReservamo-nos o direito de modificar estes termos e condições a qualquer momento. Seu uso contínuo do aplicativo após quaisquer alterações significa sua aceitação dos novos termos.\n\n7. Lei Aplicável\nEstes termos e condições são regidos e interpretados de acordo com as leis da Italia.\n\n8. Contate-Nos\nSe você tiver alguma dúvida sobre estes termos e condições, entre em contato conosco.\n\nAo usar nosso aplicativo, você reconhece que leu, entendeu e concorda em estar vinculado a estes termos e condições.</string>
+
+    <!-- buttonText -->
+    <string name="startEditing_buttonText">Começar a editar configurações</string>
+    <string name="viewGreenhouses_buttonText">Ver estufas</string>
+    <string name="save_buttonText">Salvar</string>
+    <string name="confirm_buttonText">Confirmar</string>
+    <string name="cancel_buttonText">Cancelar</string>
+
+    <!-- buttonDescription -->
+    <string name="addGreenhouse_buttonDescription">Adicionar estufa</string>
+    <string name="deleteGreenhouse_buttonDescription">Excluir estufa</string>
+    <string name="login_imageDescription">Entrar</string>
+    <string name="logout_imageDescription">Sair</string>
+    <string name="addDevice_imageDescription">Adicionar estufas</string>
+
+    <!-- toastText -->
+    <string name="IDNotFound_toastText">Estufa não encontrada!</string>
+    <string name="failedLoadData_toastText">Falha ao carregar dados!</string>
+    <string name="failedSaveData_toastText">Falha ao salvar dados!</string>
+    <string name="saveData_toastText">Dados salvos!</string>
+    <string name="notValidData_toastText">Dados inválidos!</string>
+    <string name="failedDeleteData_toastText">Falha ao excluir dados!</string>
+    <string name="emailEmpty_toastText">Email está vazio!</string>
+    <string name="passwordEmpty_toastText">Senha está vazia!</string>
+    <string name="resetPasswordSuccess_toastText">Email de redefinição de senha enviado!</string>
+    <string name="resetPasswordFailed_toastText">Falha ao enviar email de redefinição de senha!</string>
+    <string name="registerSuccess_toastText">Registro bem-sucedido!</string>
+    <string name="registerFailed_toastText">Falha no registro!</string>
+    <string name="emptyField_toastText">Campo vazio!</string>
+    <string name="passwordNotMatch_toastText">As senhas não coincidem!</string>
+    <string name="failedLogin_toastText">Falha ao entrar!</string>
+    <string name="loginSuccess_toastText">Entrada bem-sucedida!</string>
+    <string name="logoutSuccess_toastText">Saída bem-sucedida!</string>
+    <string name="devideDisconnected_toastText">Estufa desconectada!</string>
+    <string name="failedDevideDisconnected_toastText">Falha ao desconectar a estufa!</string>
+    <string name="notAuthenticatedUser_toastText">Usuário não autenticado!</string>
+    <string name="greenhouseAlredyConnected_toastText">Estufa já conectada!</string>
+    <string name="succConnectGreenhouse_toastText">Estufa conectada!</string>
+    <string name="failedConnectGreenhouse_toastText">Falha ao conectar a estufa!</string>
+
+    <!-- dialogText -->
+    <string name="deleteGreenhouse_dialogText">Tem certeza de que deseja desconectar esta estufa?</string>
+    <string name="disconnectedGreenhouse_dialogTitle">Estufa desconectada</string>
+    <string name="info">Lenda</string>
+    <string name="infoHistoryChart_dialogText">Os gráficos a seguir expressam as informações coletadas da estufa ao longo do tempo. \nQuanto mais ativa a estufa, mais dados são coletados e, consequentemente, mais detalhados são os gráficos.\n\nPara interpretar corretamente o gráfico, a unidade de medida relacionada à informação específica (°C ou %) deve ser colocada no eixo das ordenadas, enquanto a linha do tempo deve ser colocada no eixo das abscissas.</string>
+    <string name="infoHistoryChart_dialogTitle">Informações sobre o gráfico histórico</string>
+
+</resources>
