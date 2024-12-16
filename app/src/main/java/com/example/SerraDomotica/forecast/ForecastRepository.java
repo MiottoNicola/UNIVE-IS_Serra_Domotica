@@ -33,6 +33,9 @@ public class ForecastRepository {
             case "pt":
                 language = "pt";
                 break;
+            case "ja":
+                language = "ja";
+                break;
             default:
                 language = "en";
                 break;
