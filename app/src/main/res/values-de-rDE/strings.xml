@@ -115,5 +115,8 @@
 
     <string name="widgetConfiguration_text">Widget-Konfiguration</string>
     <string name="widgetSelect_text">Wählen Sie ein Gewächshaus:</string>
+    <string name="greenhouse_widget_label">Gewächshaus-Widget</string>
+    <string name="greenhouse_widget_description">Zeigt den Status des Gewächshauses an</string>
+
 
 </resources>

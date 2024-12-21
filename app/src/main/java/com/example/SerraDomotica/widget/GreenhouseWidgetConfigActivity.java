@@ -1,6 +1,5 @@
-package com.example.SerraDomotica;
+package com.example.SerraDomotica.widget;
 
-import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.SerraDomotica.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WidgetConfigActivity extends AppCompatActivity {
+public class GreenhouseWidgetConfigActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "com.example.SerraDomotica.WidgetProvider";
     public static final String PREF_PREFIX_KEY = "appwidget_";
     private int appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
@@ -39,7 +39,7 @@ public class WidgetConfigActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setResult(RESULT_CANCELED);
-        setContentView(R.layout.widget_config);
+        setContentView(R.layout.widget_greenhouse_config);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -83,7 +83,7 @@ public class WidgetConfigActivity extends AppCompatActivity {
 
                 // Update the widget
                 AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-                WidgetProvider.updateAppWidget(this, appWidgetManager, appWidgetId);
+                GreenhouseWidgetProvider.updateAppWidget(this, appWidgetManager, appWidgetId);
 
                 finish();
             } else {
@@ -109,24 +109,24 @@ public class WidgetConfigActivity extends AppCompatActivity {
                                 Log.d("WidgetConfigActivity", "Greenhouse Name: " + greenhouseName);
                                 greenhouseIds.add(greenhouseId);
                                 greenhouseNames.add(greenhouseName != null ? greenhouseName : "Unnamed Greenhouse");
-                                ArrayAdapter<String> adapter = new ArrayAdapter<>(WidgetConfigActivity.this, android.R.layout.simple_list_item_single_choice, greenhouseNames);
+                                ArrayAdapter<String> adapter = new ArrayAdapter<>(GreenhouseWidgetConfigActivity.this, android.R.layout.simple_list_item_single_choice, greenhouseNames);
                                 listView.setAdapter(adapter);
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
-                                Toast.makeText(WidgetConfigActivity.this, "Failed to load greenhouse names", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(GreenhouseWidgetConfigActivity.this, "Failed to load greenhouse names", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
                 } else {
-                    Toast.makeText(WidgetConfigActivity.this, "No greenhouses found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GreenhouseWidgetConfigActivity.this, "No greenhouses found", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(WidgetConfigActivity.this, "Failed to load greenhouses", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GreenhouseWidgetConfigActivity.this, "Failed to load greenhouses", Toast.LENGTH_SHORT).show();
             }
         });
     }

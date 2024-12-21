@@ -117,5 +117,7 @@
 
     <string name="widgetConfiguration_text">Configuration du widget</string>
     <string name="widgetSelect_text">Sélectionnez une serre :</string>
+    <string name="greenhouse_widget_label">Widget de serre</string>
+    <string name="greenhouse_widget_description">Affiche l\'état de la serre</string>
 
 </resources>

@@ -97,4 +97,7 @@
     <string name="infoHistoryChart_dialogTitle">Informazioni sui grafici degli storici</string>
     <string name="widgetConfiguration_text">Configurazione del widget</string>
     <string name="widgetSelect_text">Seleziona una serra:</string>
+    <string name="greenhouse_widget_label">Widget della serra</string>
+    <string name="greenhouse_widget_description">Visualizza lo stato della serra</string>
+
 </resources>

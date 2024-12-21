@@ -118,4 +118,7 @@
     <string name="widgetConfiguration_text">Configuración del widget</string>
     <string name="widgetSelect_text">Seleccione un invernadero:</string>
 
+    <string name="greenhouse_widget_label">Widget de invernadero</string>
+    <string name="greenhouse_widget_description">Muestra el estado del invernadero</string>
+
 </resources>

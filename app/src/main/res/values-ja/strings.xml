@@ -97,4 +97,7 @@
     <string name="infoHistoryChart_dialogTitle">履歴チャートに関する情報</string>
     <string name="widgetConfiguration_text">ウィジェットの設定</string>
     <string name="widgetSelect_text">温室を選択：</string>
+    <string name="greenhouse_widget_label">温室ウィジェット</string>
+    <string name="greenhouse_widget_description">温室の状態を表示します</string>
+
 </resources>

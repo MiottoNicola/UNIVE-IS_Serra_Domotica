@@ -121,4 +121,7 @@
     <string name="widgetConfiguration_text">Widget Configuration</string>
     <string name="widgetSelect_text">Select a greenhouse:</string>
 
+    <string name="greenhouse_widget_label">Greenhouse Widget</string>
+    <string name="greenhouse_widget_description">Displays the greenhouse status</string>
+
 </resources>

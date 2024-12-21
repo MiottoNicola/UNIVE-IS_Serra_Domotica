@@ -97,5 +97,7 @@
     <string name="infoHistoryChart_dialogText">以下图表展示了一段时间以来从温室收集到的信息。\n温室越活跃，收集的数据越多，图表也就越详细。\n\n要正确理解图表，与具体信息相关的计量单位（°C 或 %）应放在纵轴上，而时间轴应放在横轴上。</string>
     <string name="widgetConfiguration_text">小部件配置</string>
     <string name="widgetSelect_text">选择一个温室：</string>
+    <string name="greenhouse_widget_label">温室小部件</string>
+    <string name="greenhouse_widget_description">显示温室状态</string>
 
 </resources>

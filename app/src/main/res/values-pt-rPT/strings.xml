@@ -117,5 +117,7 @@
 
     <string name="widgetConfiguration_text">Configuração do widget</string>
     <string name="widgetSelect_text">Selecione uma estufa:</string>
+    <string name="greenhouse_widget_label">Widget de estufa</string>
+    <string name="greenhouse_widget_description">Exibe o status da estufa</string>
 
 </resources>

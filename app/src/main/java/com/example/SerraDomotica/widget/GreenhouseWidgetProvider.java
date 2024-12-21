@@ -1,4 +1,4 @@
-package com.example.SerraDomotica;
+package com.example.SerraDomotica.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.RemoteViews;
 
+import com.example.SerraDomotica.BaseActivity;
+import com.example.SerraDomotica.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class WidgetProvider extends AppWidgetProvider {
+public class GreenhouseWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -20,9 +22,9 @@ public class WidgetProvider extends AppWidgetProvider {
 
 
     public static void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
-        SharedPreferences prefs = context.getSharedPreferences(WidgetConfigActivity.PREFS_NAME, Context.MODE_PRIVATE);
-        String greenhouseId = prefs.getString(WidgetConfigActivity.PREF_PREFIX_KEY + appWidgetId, null);
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+        SharedPreferences prefs = context.getSharedPreferences(GreenhouseWidgetConfigActivity.PREFS_NAME, Context.MODE_PRIVATE);
+        String greenhouseId = prefs.getString(GreenhouseWidgetConfigActivity.PREF_PREFIX_KEY + appWidgetId, null);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_greenhouse_layout);
 
         if (greenhouseId != null) {
             FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("history").limitToLast(1).get()
