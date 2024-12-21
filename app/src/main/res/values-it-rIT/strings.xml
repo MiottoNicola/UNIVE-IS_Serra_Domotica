@@ -95,4 +95,6 @@
     <string name="info">Legenda</string>
     <string name="infoHistoryChart_dialogText">I seguenti grafici esprimono le informazioni raccolte dalla serra nel tempo. \nPiù la serra è attiva, più dati vengono raccolti e, di conseguenza, più dettagliati sono i grafici.\n\nPer interpretare correttamente il grafico, l\'unità di misura relativa alle informazioni specifiche (°C o %) deve essere posizionata sull\'asse delle ordinate, mentre la linea temporale deve essere posizionata sull\'asse delle ascisse.</string>
     <string name="infoHistoryChart_dialogTitle">Informazioni sui grafici degli storici</string>
+    <string name="widgetConfiguration_text">Configurazione del widget</string>
+    <string name="widgetSelect_text">Seleziona una serra:</string>
 </resources>

@@ -115,4 +115,7 @@
     <string name="infoHistoryChart_dialogText">Les graphiques suivants expriment les informations collectées de la serre au fil du temps. \nPlus la serre est active, plus les données sont collectées et, par conséquent, plus les graphiques sont détaillés.\n\nPour interpréter correctement le graphique, l\'unité de mesure liée à l\'information spécifique (°C ou %) doit être placée sur l\'axe des ordonnées, tandis que la chronologie doit être placée sur l\'axe des abscisses.</string>
     <string name="infoHistoryChart_dialogTitle">Informations sur le graphique historique</string>
 
+    <string name="widgetConfiguration_text">Configuration du widget</string>
+    <string name="widgetSelect_text">Sélectionnez une serre :</string>
+
 </resources>

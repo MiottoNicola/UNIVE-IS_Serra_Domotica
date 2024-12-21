@@ -1,15 +1,159 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/backgroundColor">
+    android:background="@color/colorPrimary"
+    android:padding="8dp">
 
+    <!-- Barra del titolo -->
     <TextView
-        android:id="@+id/widget_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/widgetGreenhouseName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello Widget"
-        android:textSize="18sp"
-        android:textColor="@android:color/black" />
+        android:text=""
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="8dp" />
+
+    <!-- Quadranti delle informazioni -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:padding="4dp">
+
+        <!-- Quadrante Temperatura -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/quadrant_background"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/widgetTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature_textTitle"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Quadrante Umidità Aria -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/quadrant_background"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/widgetHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity_textTitle"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Quadrante Umidità Suolo -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/quadrant_background"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/widgetSoilHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/soilHumidity_textTitle"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Quadrante Luminosità -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/quadrant_background"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/widgetLuminosity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/luminosity_textTitle"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </GridLayout>
 </LinearLayout>

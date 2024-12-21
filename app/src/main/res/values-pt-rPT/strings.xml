@@ -115,4 +115,7 @@
     <string name="infoHistoryChart_dialogText">Os gráficos a seguir expressam as informações coletadas da estufa ao longo do tempo. \nQuanto mais ativa a estufa, mais dados são coletados e, consequentemente, mais detalhados são os gráficos.\n\nPara interpretar corretamente o gráfico, a unidade de medida relacionada à informação específica (°C ou %) deve ser colocada no eixo das ordenadas, enquanto a linha do tempo deve ser colocada no eixo das abscissas.</string>
     <string name="infoHistoryChart_dialogTitle">Informações sobre o gráfico histórico</string>
 
+    <string name="widgetConfiguration_text">Configuração do widget</string>
+    <string name="widgetSelect_text">Selecione uma estufa:</string>
+
 </resources>

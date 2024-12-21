@@ -95,4 +95,6 @@
     <string name="disconnectedGreenhouse_dialogTitle">斷線溫室</string>
     <string name="info">圖例</string>
     <string name="infoHistoryChart_dialogText">下面的圖表表達了隨著時間的推移從溫室收集到的資訊。\n溫室越活躍，收集的資料就越多，因此圖表也就越詳細。\n\n為了正確解讀圖表，與特定資訊（攝氏度或百分比）相關的測量單位應放在縱軸上，而時間線則應放在橫軸上。</string>
+    <string name="widgetConfiguration_text">小工具配置</string>
+    <string name="widgetSelect_text">選擇一個溫室：</string>
 </resources>

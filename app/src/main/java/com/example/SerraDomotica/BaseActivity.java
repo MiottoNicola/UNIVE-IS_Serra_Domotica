@@ -133,7 +133,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         });
     }
 
-    public void getGreenhouseName(String greenhouseId, final GreenhouseNameCallback callback) {
+    public static void getGreenhouseName(String greenhouseId, final GreenhouseNameCallback callback) {
         DatabaseReference greenhouseRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("titolo");
 
         greenhouseRef.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -113,4 +113,7 @@
     <string name="infoHistoryChart_dialogText">Die folgenden Diagramme zeigen die im Laufe der Zeit gesammelten Informationen aus dem Gewächshaus. \nJe aktiver das Gewächshaus ist, desto mehr Daten werden gesammelt und desto detaillierter sind die Diagramme.\n\nUm das Diagramm korrekt zu interpretieren, sollte die Maßeinheit, die sich auf die spezifische Information bezieht (°C oder %), auf der Ordinate und die Zeitleiste auf der Abszisse platziert werden.</string>
     <string name="infoHistoryChart_dialogTitle">Informationen über das Verlaufdiagramm</string>
 
+    <string name="widgetConfiguration_text">Widget-Konfiguration</string>
+    <string name="widgetSelect_text">Wählen Sie ein Gewächshaus:</string>
+
 </resources>

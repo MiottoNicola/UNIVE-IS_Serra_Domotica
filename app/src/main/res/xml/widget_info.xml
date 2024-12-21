@@ -1,7 +1,11 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:minWidth="250dp"
-    android:minHeight="100dp"
-    android:updatePeriodMillis="86400000"
+    android:minWidth="310dp"
+    android:minHeight="150dp"
+    android:updatePeriodMillis="1800000"
     android:initialLayout="@layout/widget_layout"
-    android:resizeMode="horizontal|vertical"
-    android:widgetCategory="home_screen" />
+    android:resizeMode="none"
+    android:widgetCategory="home_screen"
+    android:minResizeWidth="310dp"
+    android:minResizeHeight="230dp"
+    android:configure="com.example.SerraDomotica.WidgetConfigActivity"
+    />

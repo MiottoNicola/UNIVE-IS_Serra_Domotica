@@ -95,4 +95,6 @@
     <string name="info">シンボルの凡例</string>
     <string name="infoHistoryChart_dialogText">次のグラフは、温室から収集された情報を時間の経過とともに表しています。 \n温室が活発になればなるほど、より多くのデータが収集され、その結果、グラフがより詳細になります。 \n\nグラフを正しく解釈するには、特定の情報に関連する測定単位 (°C または %) を縦軸に配置し、タイムラインを横軸に配置する必要があります。</string>
     <string name="infoHistoryChart_dialogTitle">履歴チャートに関する情報</string>
+    <string name="widgetConfiguration_text">ウィジェットの設定</string>
+    <string name="widgetSelect_text">温室を選択：</string>
 </resources>

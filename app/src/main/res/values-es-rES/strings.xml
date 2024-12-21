@@ -115,4 +115,7 @@
     <string name="infoHistoryChart_dialogText">Los siguientes gráficos expresan la información recopilada del invernadero a lo largo del tiempo. \nCuanto más activo esté el invernadero, más datos se recopilan y, en consecuencia, más detallados son los gráficos.\n\nPara interpretar correctamente el gráfico, la unidad de medida relacionada con la información específica (°C o %) debe colocarse en el eje de ordenadas, mientras que la línea de tiempo debe colocarse en el eje de abscisas.</string>
     <string name="infoHistoryChart_dialogTitle">Información sobre el gráfico histórico</string>
 
+    <string name="widgetConfiguration_text">Configuración del widget</string>
+    <string name="widgetSelect_text">Seleccione un invernadero:</string>
+
 </resources>

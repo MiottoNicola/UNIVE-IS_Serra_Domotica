@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/backgroundColor">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/black"
+        android:title="@string/widgetConfiguration_text"
+        android:elevation="4dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/widgetSelect_text"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-medium"/>
+
+    <ListView
+        android:id="@+id/spinnerSerraList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        android:divider="@color/colorPrimary"
+        android:dividerHeight="1dp"
+        android:padding="8dp"
+        android:listSelector="@color/successBackgroundColor" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/save_buttonText"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:elevation="2dp"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

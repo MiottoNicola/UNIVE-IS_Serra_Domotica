@@ -95,4 +95,7 @@
     <string name="disconnectedGreenhouse_dialogTitle">الدفيئة غير متصلة</string>
     <string name="info">أسطورة</string>
     <string name="infoHistoryChart_dialogText">توضح الرسوم البيانية التالية المعلومات التي تم جمعها من الدفيئة مع مرور الوقت. \nكلما كانت الدفيئة أكثر نشاطا، كلما تم جمع المزيد من البيانات، وبالتالي، أصبحت الرسوم البيانية أكثر تفصيلا. \n\nلتفسير المخطط بشكل صحيح، يجب وضع وحدة القياس المتعلقة بالمعلومات المحددة (درجة مئوية أو %) على المحور الإحداثي، في حين يجب وضع الخط الزمني على محور الإحداثي السيني.</string>
+    <string name="widgetConfiguration_text">تكوين الأداة</string>
+    <string name="widgetSelect_text">اختر دفيئة:</string>
+
 </resources>

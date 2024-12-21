@@ -118,5 +118,7 @@
     <string name="infoHistoryChart_dialogText">The following charts express the information collected from the greenhouse over time. \nThe more active the greenhouse is, the more data is collected, and consequently, the more detailed the charts are. \n\nTo correctly interpret the chart, the unit of measure related to the specific information (°C or %) should be placed on the ordinate axis, while the timeline should be placed on the abscissa axis.</string>
     <string name="infoHistoryChart_dialogTitle">Information about the History Charts</string>
     <string name="viewGreenhouses_buttonText">View Greenhouses</string>
+    <string name="widgetConfiguration_text">Widget Configuration</string>
+    <string name="widgetSelect_text">Select a greenhouse:</string>
 
 </resources>

@@ -32,8 +32,7 @@
         <activity android:name=".GreenhouseSettingsActivity" />
         <activity android:name=".AlertActivity" />
 
-        <receiver android:name=".widget.MyAppWidgetProvider"
-            android:exported="true">
+        <receiver android:name=".WidgetProvider" android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -41,5 +40,13 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info" />
         </receiver>
+
+        <activity android:name=".WidgetConfigActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
