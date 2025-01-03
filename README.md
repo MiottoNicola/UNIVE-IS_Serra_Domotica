@@ -14,8 +14,7 @@
 # Informazioni progetto
 **Nome APP:** Your Greenhouses
 
-**Versione:** 1.0
-
+**Versione:** 1.1
 
 ### Descrizione:
 Un'applicazione Android che consente agli utenti di monitorare e gestire serre domotiche in tempo reale, integrando dati meteo e informazioni raccolte dai sensori.
@@ -29,31 +28,29 @@ L'obiettivo principale è sviluppare un'app che permetta agli utenti di:
 
 ## Stato di Avanzamento
 ### Funzionalità Completate:
-1. **Autenticazione Utente**:
+1. **Autenticazione Utente** (v.1.0):
    - Implementata tramite Firebase Authentication (login, registrazione e ripristino password).
-2. **Gestione Dati Firebase**:
+2. **Gestione Dati Firebase** (v.1.0):
    - Struttura del database progettata per salvare utenti, dispositivi e dati sensoriali.
    - Associazione utente-dispositivo completata.
-3. **Dashboard Principale**:
+3. **Dashboard Principale** (v.1.0):
    - Visualizzazione dei dati meteo in tempo reale (integrazione API OpenWeather).
    - Monitoraggio dei dati raccolti della serra.
    - Azionare attuatori della serra.
-4. **Gestione degli errori**:
+4. **Gestione degli errori** (v.1.0):
    - Popup che segnalano eventuali errori all'utente.
+5. **Applicazione multilingua** (v.1.1):
+  - Traduzione applicazione in 10 lingue differenti. (default: inglese)
+6. **widget avanzati** (v.1.1):
+  - Implementato widget Android per una rapida visualizzazione degli ultimi dati della serra (aggiornamento ogni 30 min).
 
-### Funzionalità Future:
-- **Applicazione multilingua**: L'applicazione verrà tradotta nelle lingue più comuni in uttto il mondo.
-- **Widget avanzati**: L'applicazione implementerà dei widget per monitorare la serra senza entrare nell'app.
-
-
-
-## Problemi Conosciuti
+## Problemi Conosciuti - [parzialmente risolti]
 - **Layout del Widget**: Potrebbe non adattarsi perfettamente su alcuni launcher. Soluzione: verifica la compatibilità con il launcher in uso.
 - **Blocco per Assenza di Connessione**: Se l'app si blocca in assenza di rete, si consiglia di riavviarla. Stiamo lavorando per rendere l'app più resiliente in condizioni di rete instabile.
 
 ## Struttura del Progetto
 - **/app/src/main/java**:
-  - Codice sorgente suddiviso in package (es. `forecast`, `utils`, ecc.).
+  - Codice sorgente suddiviso in package (es. `forecast`, `utils`, widget).
 - **/res/layout**:
   - File XML per il design delle activity, delle finestre di dialogo.
 - **/res/values**:
