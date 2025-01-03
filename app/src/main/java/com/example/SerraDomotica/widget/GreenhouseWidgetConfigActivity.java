@@ -3,6 +3,8 @@ package com.example.SerraDomotica.widget;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -67,6 +69,12 @@ public class GreenhouseWidgetConfigActivity extends AppCompatActivity {
             return;
         }
 
+        if (!isNetworkAvailable()) {
+            Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         // Load greenhouses from Firebase
         loadGreenhouses(currentUser.getUid());
 
@@ -90,6 +98,12 @@ public class GreenhouseWidgetConfigActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please select a greenhouse", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     private void loadGreenhouses(String userId) {
