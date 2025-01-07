@@ -99,5 +99,8 @@
     <string name="widgetSelect_text">Seleziona una serra:</string>
     <string name="greenhouse_widget_label">Widget della serra</string>
     <string name="greenhouse_widget_description">Visualizza lo stato della serra</string>
-
+    <string name="deleteAlert_title">Elimina avviso</string>
+    <string name="deleteAlert_text">Sei sicuro di voler eliminare tutti gli avvisi?</string>
+    <string name="alertsSuccDeleted_toastText">Avvisi eliminati con successo!</string>
+    <string name="failedDeleteAlerts_toastText">Errore nell'eliminazione degli avvisi!</string>
 </resources>

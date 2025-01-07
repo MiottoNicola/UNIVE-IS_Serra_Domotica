@@ -1,5 +1,6 @@
 package com.example.SerraDomotica;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,7 @@ public class AlertActivity extends BaseActivity {
     private List<String> alertList;
     private DatabaseReference alertRef;
     private TextView textViewNoAlerts;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,43 @@ public class AlertActivity extends BaseActivity {
             alertRef = FirebaseDatabase.getInstance().getReference("devices").child(greenhouseId).child("alert");
             fetchAlerts();
         }
+
+        FloatingActionButton fabDeleteAlerts = findViewById(R.id.fab_delete_alerts);
+        fabDeleteAlerts.setOnClickListener(v -> deleteAlerts());
     }
+
+    private void deleteAlerts() {
+        if (alertList.isEmpty()) {
+            Toast.makeText(this, getString(R.string.noAlert_text), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        AlertDialog dialog1 = new AlertDialog.Builder(this)
+                .setTitle(R.string.deleteAlert_title)
+                .setMessage(R.string.deleteAlert_text)
+                .setPositiveButton(R.string.confirm_buttonText, (dialog, which) -> {
+                    if (alertRef != null) {
+                        alertRef.removeValue().addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(AlertActivity.this, getString(R.string.alertsSuccDeleted_toastText), Toast.LENGTH_SHORT).show();
+                                alertList.clear();
+                                alertAdapter.notifyDataSetChanged();
+                                textViewNoAlerts.setVisibility(View.VISIBLE);
+                            } else {
+                                Toast.makeText(AlertActivity.this, getString(R.string.failedDeleteAlerts_toastText), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton(R.string.cancel_buttonText, null)
+                .create();
+
+        dialog1.setOnShowListener(dialogInterface -> {
+            dialog1.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.black, null));
+            dialog1.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.black, null));
+        });
+
+        dialog1.show();
+}
 
     private void fetchAlerts() {
         alertRef.addValueEventListener(new ValueEventListener() {

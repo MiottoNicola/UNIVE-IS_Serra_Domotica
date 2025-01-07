@@ -99,4 +99,8 @@
     <string name="widgetSelect_text">選擇一個溫室：</string>
     <string name="greenhouse_widget_label">溫室小工具</string>
     <string name="greenhouse_widget_description">顯示溫室狀態</string>
+    <string name="deleteAlert_title">刪除警報</string>
+    <string name="deleteAlert_text">您確定要刪除所有警報嗎？</string>
+    <string name="alertsSuccDeleted_toastText">警報刪除成功！</string>
+    <string name="failedDeleteAlerts_toastText">刪除警報失敗！</string>
 </resources>

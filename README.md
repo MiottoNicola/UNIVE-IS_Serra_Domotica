@@ -40,7 +40,18 @@ L'obiettivo principale è sviluppare un'app che permetta agli utenti di:
 4. **Gestione degli errori** (v.1.0):
    - Popup che segnalano eventuali errori all'utente.
 5. **Applicazione multilingua** (v.1.1):
-  - Traduzione applicazione in 10 lingue differenti. (default: inglese)
+  - Traduzione applicazione lingue differenti: 
+    * inglese [default]
+    * arabo
+    * tedesco
+    * francese
+    * italiano
+    * portoghese
+    * spagnolo
+    * giapponese
+    * cinese semplificato
+    * cinese tradizionale
+
 6. **widget avanzati** (v.1.1):
   - Implementato widget Android per una rapida visualizzazione degli ultimi dati della serra (aggiornamento ogni 30 min).
 

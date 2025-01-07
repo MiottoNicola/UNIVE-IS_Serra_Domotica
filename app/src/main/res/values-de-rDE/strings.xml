@@ -1,9 +1,5 @@
 <resources>
-
-    <!-- activity_alerts.xml -->
     <string name="noAlert_text">Keine Warnungen verfügbar!</string>
-
-    <!-- user profile -->
     <string name="fullName_text">"Vollständiger Name: "</string>
     <string name="password_text">"Passwort: "</string>
     <string name="repeatPassword_text">"Passwort wiederholen: "</string>
@@ -12,8 +8,6 @@
     <string name="login_buttonText">Anmelden</string>
     <string name="or_text">oder</string>
     <string name="register_buttonText">Registrieren</string>
-
-    <!-- iconDescription -->
     <string name="profileIcon_imageDescription">Profilmenü</string>
     <string name="deleteGreenhouse_imageDescription">Gewächshaus löschen</string>
     <string name="temperatureIcon_imageDescription">Temperatur</string>
@@ -25,8 +19,6 @@
     <string name="weatherIcon_imageDescription">Wetter</string>
     <string name="windIcon_imageDescription">Wind</string>
     <string name="noInternet_imageDescription">Keine Internetverbindung!</string>
-
-    <!-- textTitle -->
     <string name="information_textTitle">Informationen</string>
     <string name="temperature_textTitle">Temperatur</string>
     <string name="humidity_textTitle">Luftfeuchtigkeit</string>
@@ -36,8 +28,6 @@
     <string name="action_textTitle">Aktion</string>
     <string name="light_textTitle">Licht</string>
     <string name="date_textTitle">Datum</string>
-
-    <!-- activityText -->
     <string name="alerts_activityTitle">Warnungen</string>
     <string name="history_activityTitle">Verlauf</string>
     <string name="settings_activityTitle">Einstellungen</string>
@@ -45,8 +35,6 @@
     <string name="register_activityTitle">Registrieren</string>
     <string name="profile_activityTitle">Profil</string>
     <string name="greenhouseDetails_activityTitle">Gewächshausdetails</string>
-
-    <!-- text -->
     <string name="editName_text">Name des Gewächshauses</string>
     <string name="minAirTemperature_text">Min Temperatur</string>
     <string name="maxAirTemperature_text">Max Temperatur</string>
@@ -73,15 +61,11 @@
     <string name="save_buttonText">Speichern</string>
     <string name="confirm_buttonText">Bestätigen</string>
     <string name="cancel_buttonText">Abbrechen</string>
-
-    <!-- buttonDescription -->
     <string name="addGreenhouse_buttonDescription">Gewächshaus hinzufügen</string>
     <string name="deleteGreenhouse_buttonDescription">Gewächshaus löschen</string>
     <string name="login_imageDescription">Anmelden</string>
     <string name="logout_imageDescription">Abmelden</string>
     <string name="addDevice_imageDescription">Gewächshäuser hinzufügen</string>
-
-    <!-- toastText -->
     <string name="IDNotFound_toastText">Gewächshaus nicht gefunden!</string>
     <string name="failedLoadData_toastText">Daten konnten nicht geladen werden!</string>
     <string name="failedSaveData_toastText">Daten konnten nicht gespeichert werden!</string>
@@ -105,18 +89,17 @@
     <string name="greenhouseAlredyConnected_toastText">Gewächshaus bereits verbunden!</string>
     <string name="succConnectGreenhouse_toastText">Gewächshaus verbunden!</string>
     <string name="failedConnectGreenhouse_toastText">Gewächshaus konnte nicht verbunden werden!</string>
-
-    <!-- dialogText -->
     <string name="deleteGreenhouse_dialogText">Sind Sie sicher, dass Sie dieses Gewächshaus trennen möchten?</string>
     <string name="disconnectedGreenhouse_dialogTitle">Gewächshaus getrennt</string>
     <string name="info">Legende</string>
     <string name="infoHistoryChart_dialogText">Die folgenden Diagramme zeigen die im Laufe der Zeit gesammelten Informationen aus dem Gewächshaus. \nJe aktiver das Gewächshaus ist, desto mehr Daten werden gesammelt und desto detaillierter sind die Diagramme.\n\nUm das Diagramm korrekt zu interpretieren, sollte die Maßeinheit, die sich auf die spezifische Information bezieht (°C oder %), auf der Ordinate und die Zeitleiste auf der Abszisse platziert werden.</string>
     <string name="infoHistoryChart_dialogTitle">Informationen über das Verlaufdiagramm</string>
-
     <string name="widgetConfiguration_text">Widget-Konfiguration</string>
     <string name="widgetSelect_text">Wählen Sie ein Gewächshaus:</string>
     <string name="greenhouse_widget_label">Gewächshaus-Widget</string>
     <string name="greenhouse_widget_description">Zeigt den Status des Gewächshauses an</string>
-
-
+    <string name="deleteAlert_title">Alarm löschen</string>
+    <string name="deleteAlert_text">Sind Sie sicher, dass Sie alle Alarme löschen möchten?</string>
+    <string name="alertsSuccDeleted_toastText">Alarme erfolgreich gelöscht!</string>
+    <string name="failedDeleteAlerts_toastText">Fehler beim Löschen der Alarme!</string>
 </resources>

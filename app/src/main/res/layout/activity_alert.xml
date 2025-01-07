@@ -1,29 +1,50 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        app:titleTextColor="@color/black"
-        android:title="@string/alerts_activityTitle"/>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_view_no_alerts"
-        android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:titleTextColor="@color/black"
+                android:title="@string/alerts_activityTitle"/>
+
+            <TextView
+                android:id="@+id/text_view_no_alerts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/noAlert_text"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_alerts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_delete_alerts"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/noAlert_text"
-        android:gravity="center"
-        android:visibility="gone"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_alerts"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_delete"
+        android:contentDescription="delete alerts"
+        app:backgroundTint="@color/colorAccent"/>
+</RelativeLayout>

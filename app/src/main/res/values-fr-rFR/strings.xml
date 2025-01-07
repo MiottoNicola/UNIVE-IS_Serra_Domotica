@@ -1,9 +1,5 @@
 <resources>
-
-    <!-- activity_alerts.xml -->
     <string name="noAlert_text">Aucune alerte disponible!</string>
-
-    <!-- user profile -->
     <string name="fullName_text">"Nom complet: "</string>
     <string name="password_text">"Mot de passe: "</string>
     <string name="repeatPassword_text">"Répéter le mot de passe: "</string>
@@ -12,8 +8,6 @@
     <string name="login_buttonText">Connexion</string>
     <string name="or_text">ou</string>
     <string name="register_buttonText">S\'inscrire</string>
-
-    <!-- iconDescription -->
     <string name="profileIcon_imageDescription">Menu Profil</string>
     <string name="deleteGreenhouse_imageDescription">Supprimer la serre</string>
     <string name="temperatureIcon_imageDescription">Température</string>
@@ -25,8 +19,6 @@
     <string name="weatherIcon_imageDescription">Météo</string>
     <string name="windIcon_imageDescription">Vent</string>
     <string name="noInternet_imageDescription">Pas de connexion Internet!</string>
-
-    <!-- textTitle -->
     <string name="information_textTitle">Informations</string>
     <string name="temperature_textTitle">Température</string>
     <string name="humidity_textTitle">Humidité de l\'air</string>
@@ -36,8 +28,6 @@
     <string name="action_textTitle">Action</string>
     <string name="light_textTitle">Lumière</string>
     <string name="date_textTitle">Date</string>
-
-    <!-- activityText -->
     <string name="alerts_activityTitle">Alertes</string>
     <string name="history_activityTitle">Historique</string>
     <string name="settings_activityTitle">Paramètres</string>
@@ -45,8 +35,6 @@
     <string name="register_activityTitle">Inscription</string>
     <string name="profile_activityTitle">Profil</string>
     <string name="greenhouseDetails_activityTitle">Détails de la serre</string>
-
-    <!-- text -->
     <string name="editName_text">Nom de la serre</string>
     <string name="minAirTemperature_text">Température Min</string>
     <string name="maxAirTemperature_text">Température Max</string>
@@ -68,22 +56,16 @@
     <string name="terms_conditions_title"><![CDATA[Términos y Condiciones]]></string>
     <string name="terms_conditions_text">Voir les Termes et Conditions</string>
     <string name="terms_conditions_full_text">Termes et Conditions  1. Introduction Bienvenue dans notre application. En accédant ou en utilisant notre application, vous acceptez d\'être lié par ces termes et conditions.  2. Utilisation de l\'App Vous acceptez d\'utiliser l\'application uniquement à des fins légales et de manière à ne pas enfreindre les droits des autres ou restreindre leur utilisation et leur jouissance de l\'application.  3. Confidentialité Nous nous engageons à protéger votre vie privée. Notre politique de confidentialité explique comment nous collectons, utilisons et divulguons des informations vous concernant.  4. Propriété Intellectuelle Tout le contenu, les marques et les données de cette application, y compris mais sans s\'y limiter les logiciels, bases de données, textes, graphiques, icônes et hyperliens, sont notre propriété ou sous licence et sont protégés par la loi.  5. Limitation de Responsabilité Nous ne sommes pas responsables des dommages directs, indirects, accidentels ou consécutifs résultant de votre utilisation de l\'application.  6. Modifications des Termes Nous nous réservons le droit de modifier ces termes et conditions à tout moment. Votre utilisation continue de l\'application après toute modification signifie votre acceptation des nouveaux termes.  7. Droit Applicable Ces termes et conditions sont régis et interprétés conformément aux lois de Italia.  8. Contactez-nous Si vous avez des questions concernant ces termes et conditions, veuillez nous contacter.  En utilisant notre application, vous reconnaissez avoir lu, compris et accepté d\'être lié par ces termes et conditions.</string>
-
-    <!-- buttonText -->
     <string name="startEditing_buttonText">Commencer à modifier les paramètres</string>
     <string name="viewGreenhouses_buttonText">Voir les serres</string>
     <string name="save_buttonText">Enregistrer</string>
     <string name="confirm_buttonText">Confirmer</string>
     <string name="cancel_buttonText">Annuler</string>
-
-    <!-- buttonDescription -->
     <string name="addGreenhouse_buttonDescription">Ajouter une serre</string>
     <string name="deleteGreenhouse_buttonDescription">Supprimer la serre</string>
     <string name="login_imageDescription">Connexion</string>
     <string name="logout_imageDescription">Déconnexion</string>
     <string name="addDevice_imageDescription">Ajouter des serres</string>
-
-    <!-- toastText -->
     <string name="IDNotFound_toastText">Serre non trouvée!</string>
     <string name="failedLoadData_toastText">Échec du chargement des données!</string>
     <string name="failedSaveData_toastText">Échec de l\'enregistrement des données!</string>
@@ -107,17 +89,17 @@
     <string name="greenhouseAlredyConnected_toastText">Serre déjà connectée!</string>
     <string name="succConnectGreenhouse_toastText">Serre connectée!</string>
     <string name="failedConnectGreenhouse_toastText">Échec de la connexion de la serre!</string>
-
-    <!-- dialogText -->
     <string name="deleteGreenhouse_dialogText">Êtes-vous sûr de vouloir déconnecter cette serre?</string>
     <string name="disconnectedGreenhouse_dialogTitle">Serre déconnectée</string>
     <string name="info">Légende</string>
     <string name="infoHistoryChart_dialogText">Les graphiques suivants expriment les informations collectées de la serre au fil du temps. \nPlus la serre est active, plus les données sont collectées et, par conséquent, plus les graphiques sont détaillés.\n\nPour interpréter correctement le graphique, l\'unité de mesure liée à l\'information spécifique (°C ou %) doit être placée sur l\'axe des ordonnées, tandis que la chronologie doit être placée sur l\'axe des abscisses.</string>
     <string name="infoHistoryChart_dialogTitle">Informations sur le graphique historique</string>
-
     <string name="widgetConfiguration_text">Configuration du widget</string>
     <string name="widgetSelect_text">Sélectionnez une serre :</string>
     <string name="greenhouse_widget_label">Widget de serre</string>
     <string name="greenhouse_widget_description">Affiche l\'état de la serre</string>
-
+    <string name="deleteAlert_title">Supprimer l\'alerte</string>
+    <string name="deleteAlert_text">Êtes-vous sûr de vouloir supprimer toutes les alertes?</string>
+    <string name="alertsSuccDeleted_toastText">Alertes supprimées avec succès!</string>
+    <string name="failedDeleteAlerts_toastText">Échec de la suppression des alertes!</string>
 </resources>

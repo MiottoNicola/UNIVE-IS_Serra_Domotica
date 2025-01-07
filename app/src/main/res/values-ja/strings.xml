@@ -99,5 +99,8 @@
     <string name="widgetSelect_text">温室を選択：</string>
     <string name="greenhouse_widget_label">温室ウィジェット</string>
     <string name="greenhouse_widget_description">温室の状態を表示します</string>
-
+    <string name="deleteAlert_title">アラートの削除</string>
+    <string name="deleteAlert_text">すべてのアラートを削除してもよろしいですか？</string>
+    <string name="alertsSuccDeleted_toastText">アラートが正常に削除されました！</string>
+    <string name="failedDeleteAlerts_toastText">アラートの削除に失敗しました！</string>
 </resources>

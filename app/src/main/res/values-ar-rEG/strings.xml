@@ -99,6 +99,8 @@
     <string name="widgetSelect_text">اختر دفيئة:</string>
     <string name="greenhouse_widget_label">أداة الدفيئة</string>
     <string name="greenhouse_widget_description">يعرض حالة الدفيئة</string>
-
-
+    <string name="deleteAlert_title">حذف التنبيه</string>
+    <string name="deleteAlert_text">هل أنت متأكد أنك تريد حذف جميع التنبيهات؟</string>
+    <string name="alertsSuccDeleted_toastText">تم حذف التنبيهات بنجاح!</string>
+    <string name="failedDeleteAlerts_toastText">فشل في حذف التنبيهات!</string>
 </resources>
