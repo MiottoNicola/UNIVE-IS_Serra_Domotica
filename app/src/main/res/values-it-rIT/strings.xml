@@ -103,4 +103,5 @@
     <string name="deleteAlert_text">Sei sicuro di voler eliminare tutti gli avvisi?</string>
     <string name="alertsSuccDeleted_toastText">Avvisi eliminati con successo!</string>
     <string name="failedDeleteAlerts_toastText">Errore nell\'eliminazione degli avvisi!</string>
+    <string name="historyChart_labelDescription">Linea temporale</string>
 </resources>

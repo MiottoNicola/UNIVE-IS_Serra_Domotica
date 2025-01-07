@@ -102,4 +102,5 @@
     <string name="deleteAlert_text">Êtes-vous sûr de vouloir supprimer toutes les alertes?</string>
     <string name="alertsSuccDeleted_toastText">Alertes supprimées avec succès!</string>
     <string name="failedDeleteAlerts_toastText">Échec de la suppression des alertes!</string>
+    <string name="historyChart_labelDescription">Chronologie</string>
 </resources>

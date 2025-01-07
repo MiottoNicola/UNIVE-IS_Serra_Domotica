@@ -113,8 +113,11 @@ public class HistoryChartActivity extends BaseActivity {
         LineDataSet dataSet = new LineDataSet(entries, label);
         LineData lineData = new LineData(dataSet);
         chart.setData(lineData);
+        chart.getDescription().setText(getString(R.string.historyChart_labelDescription));
 
         XAxis xAxis = chart.getXAxis();
+        xAxis.setDrawGridLines(false);
+        xAxis.setDrawLabels(false);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
         YAxis rightAxis = chart.getAxisRight();

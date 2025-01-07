@@ -103,4 +103,5 @@
     <string name="deleteAlert_text">すべてのアラートを削除してもよろしいですか？</string>
     <string name="alertsSuccDeleted_toastText">アラートが正常に削除されました！</string>
     <string name="failedDeleteAlerts_toastText">アラートの削除に失敗しました！</string>
+    <string name="historyChart_labelDescription">タイムライン</string>
 </resources>

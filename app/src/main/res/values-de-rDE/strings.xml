@@ -102,4 +102,5 @@
     <string name="deleteAlert_text">Sind Sie sicher, dass Sie alle Alarme löschen möchten?</string>
     <string name="alertsSuccDeleted_toastText">Alarme erfolgreich gelöscht!</string>
     <string name="failedDeleteAlerts_toastText">Fehler beim Löschen der Alarme!</string>
+    <string name="historyChart_labelDescription">Zeitachse</string>
 </resources>

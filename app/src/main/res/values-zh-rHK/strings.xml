@@ -103,4 +103,5 @@
     <string name="deleteAlert_text">您確定要刪除所有警報嗎？</string>
     <string name="alertsSuccDeleted_toastText">警報刪除成功！</string>
     <string name="failedDeleteAlerts_toastText">刪除警報失敗！</string>
+    <string name="historyChart_labelDescription">時間線</string>
 </resources>

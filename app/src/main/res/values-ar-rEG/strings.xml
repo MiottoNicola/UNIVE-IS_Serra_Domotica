@@ -103,4 +103,5 @@
     <string name="deleteAlert_text">هل أنت متأكد أنك تريد حذف جميع التنبيهات؟</string>
     <string name="alertsSuccDeleted_toastText">تم حذف التنبيهات بنجاح!</string>
     <string name="failedDeleteAlerts_toastText">فشل في حذف التنبيهات!</string>
+    <string name="historyChart_labelDescription">الجدول الزمني</string>
 </resources>

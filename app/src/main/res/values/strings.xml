@@ -30,6 +30,7 @@
     <string name="weatherIcon_imageDescription">Weather</string>
     <string name="windIcon_imageDescription">Wind</string>
     <string name="noInternet_imageDescription">No Internet Connection!</string>
+    <string name="historyChart_labelDescription">Time Line</string>
 
     <!-- textTitle -->
     <string name="information_textTitle">Information</string>
