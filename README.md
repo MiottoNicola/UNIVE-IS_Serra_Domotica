@@ -1,12 +1,10 @@
-##### Ingegneria del Software 2023/2024 - Università Ca' Foscari Venezia
+###### Ingegneria del Software 2023/2024 - Università Ca' Foscari Venezia
 
 # Informazioni gruppo
 **Nome:** CaligGroup
 
-**Capo-gruppo:**  
-- Michele Bertoldo - 890571@stud.unive.it
-
 **Membri:**      
+- Michele Bertoldo - 890571@stud.unive.it   [capo-gruppo]
 - Bordignon Giacomo - 897270@stud.unive.it
 - Miotto Nicola - 895216@stud.unive.it
 - Titotto Paolo - 895227@stud.unive.it
@@ -15,6 +13,8 @@
 **Nome APP:** Your Greenhouses
 
 **Versione:** 1.1
+
+**Github:** https://github.com/MiottoNicola/UNIVE-IS_Serra_Domotica
 
 ### Descrizione:
 Un'applicazione Android che consente agli utenti di monitorare e gestire serre domotiche in tempo reale, integrando dati meteo e informazioni raccolte dai sensori.
@@ -49,17 +49,17 @@ L'obiettivo principale è sviluppare un'app che permetta agli utenti di:
 - **Blocco per Assenza di Connessione**: Se l'app si blocca in assenza di rete, si consiglia di riavviarla. Stiamo lavorando per rendere l'app più resiliente in condizioni di rete instabile.
 
 ## Struttura del Progetto
-- **/app/src/main/java**:
-  - Codice sorgente suddiviso in package (es. `forecast`, `utils`, widget).
-- **/res/layout**:
+- **`/app/src/main/java`**:
+  - Codice sorgente suddiviso in package (es. `forecast`, `utils`, `widget`).
+- **`/res/layout`**:
   - File XML per il design delle activity, delle finestre di dialogo.
-- **/res/values**:
+- **`/res/values`**:
   - File di configurazione (colori, stringhe, stili, ecc.).
-- **/res/drawable**:
+- **`/res/drawable`**:
     - Fie vettori utilizzati come immagini.
-- **res/mipmap**:
+- **`res/mipmap`**:
     - File icone dell'app.
-- **README.md**:
+- **`README.md`**:
   - Questo file, che illustra lo stato di avanzamento.
 
 ### Librerie/API implementate:
