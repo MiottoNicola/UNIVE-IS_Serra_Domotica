@@ -14,7 +14,7 @@
 
 **Versione:** 1.1
 
-**Github:** https://github.com/MiottoNicola/UNIVE-IS_Serra_Domotica
+**Github:** [UNIVE-IS_Serra_Domotica](https://github.com/MiottoNicola/UNIVE-IS_Serra_Domotica)
 
 ### Descrizione:
 Un'applicazione Android che consente agli utenti di monitorare e gestire serre domotiche in tempo reale, integrando dati meteo e informazioni raccolte dai sensori.
@@ -97,6 +97,32 @@ L'applicazione richiede l'iscrizione e l'accesso per sbloccare tutte le funziona
   * Nome
 
 **Note:** tali dati vengono salvati all'interno della piattafora Firebase in maniera cifrata e non accessibili dall'esterno. La piattaforma mette a disposizione lo strumento "Firebase Authentication" per la gestione automatica delle informazioni personali.
+
+# Installazione applicazione da Github
+
+### Prerequisiti
+- **Android Studio:** Versione 2021.3 o successiva.
+- **JDK:** Versione 11 o successiva.
+- **Dispositivo Android:** Versione 7.0 (API 24) o successiva.
+
+### Guida
+1.  **Clonare la repository Github:**
+  Aprire un terminale e clonare il repository GitHub sul proprio computer eseguendo il comando: 
+`git clone https://github.com/MiottoNicola/UNIVE-IS_Serra_Domotica.git`
+2. **Aprire il Progetto in Android Studio:**
+    * Avviare Android Studio.
+    * Cliccare su **"File" > "Open"** e selezionare la cartella dove è stato clonato il repository.
+    * Android Studio inizierà a sincronizzare il progetto con **Gradle**. Aspettare fino al completamento della sincronizzazione.
+3. **Costruire il Progetto:**
+    * In Android Studio, cliccare su **"Build" > "Make Project"** per verificare che tutto sia configurato correttamente.
+4. **Collegare un Dispositivo Android o Usare un Emulatore:**
+    * Collegare uno smartphone Android con la **modalità sviluppatore** abilitata e il **debug USB** attivo.
+    * Oppure configurare un emulatore Android in Android Studio.
+5. **Eseguire l'App:**
+    * Cliccare sul pulsante **"Run"** in Android Studio.
+    * Selezionare il dispositivo/emulatore dove installare l'app.
+6. **Utilizzare l'App:**
+    * Una volta avviata l'app, l'utente può effettuare l'accesso e configurare le serre.
 
 # Note finali
 - L'applicazione assume che l'utente abbia già una propria serra installata, configurata e compatibile con la nostra app.
