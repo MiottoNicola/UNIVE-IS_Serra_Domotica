@@ -1,18 +1,8 @@
 ###### Ingegneria del Software 2023/2024 - Università Ca' Foscari Venezia
-
-# Informazioni gruppo
-**Nome:** CaligGroup
-
-**Membri:**      
-- Michele Bertoldo - 890571@stud.unive.it   [capo-gruppo]
-- Bordignon Giacomo - 897270@stud.unive.it
-- Miotto Nicola - 895216@stud.unive.it
-- Titotto Paolo - 895227@stud.unive.it
-
 # Informazioni progetto
 **Nome APP:** Your Greenhouses
 
-**Versione:** 1.1
+**Versione:** 1.1 
 
 **Github:** [UNIVE-IS_Serra_Domotica](https://github.com/MiottoNicola/UNIVE-IS_Serra_Domotica)
 
@@ -115,6 +105,9 @@ L'applicazione richiede l'iscrizione e l'accesso per sbloccare tutte le funziona
     * Android Studio inizierà a sincronizzare il progetto con **Gradle**. Aspettare fino al completamento della sincronizzazione.
 3. **Costruire il Progetto:**
     * In Android Studio, cliccare su **"Build" > "Make Project"** per verificare che tutto sia configurato correttamente.
+4. **Configurare il progetto:**
+    * All'interno del file `/app/src/main/java/forecast/ForecastRepository` inserire la propria apiKey generata da [OpenWeather](https://openweathermap.org/).
+    * Configurare [Firebase](https://firebase.google.com/) seguendo l'apposito tutorial.
 4. **Collegare un Dispositivo Android o Usare un Emulatore:**
     * Collegare uno smartphone Android con la **modalità sviluppatore** abilitata e il **debug USB** attivo.
     * Oppure configurare un emulatore Android in Android Studio.
