@@ -50,7 +50,7 @@ public class ForecastRepository {
                 break;
         }
 
-        String apiKey = "478eff817c63c52301446cb3dbc57a50";
+        String apiKey = "YOUR_API_KEY_HERE";
         String urlString = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey + "&units=metric&lang=" + language;
         URL url = new URL(urlString);
         HttpURLConnection urlConnection = null;
